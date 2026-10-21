@@ -383,8 +383,8 @@ export function HomePage() {
 
             <BeforeAfterSlider
               beforeImage="/src/assets/images/bathroom_before_reno_1792601098863.jpg"
-              afterImage="/src/assets/images/bathroom_after_reno_1792601119894.jpg"
-              beforeAlt="Badezimmer vor der Sanierung mit veralteten hellblauen Fliesen"
+              afterImage='/images/8.jpg'
+              beforeAlt='/images/9.jpg'
               afterAlt="Badezimmer nach der Sanierung mit exklusiven großformatigen Kalksteinfliesen von Liox Fliessen"
               beforeLabel="Vorher"
               afterLabel="Nachher"
