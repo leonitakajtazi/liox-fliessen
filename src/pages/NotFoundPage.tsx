@@ -57,15 +57,12 @@ export function NotFoundPage() {
             {SERVICES.map((s) => (
               <Link
                 key={s.id}
-                href={`/leistungen/${s.slug}`}
+                href={`/leistungen#${s.slug}`}
                 className="hover:text-[#a09282] transition-colors py-1 text-xs text-[#2f2e2e]/80"
               >
                 · {s.title}
               </Link>
             ))}
-            <Link href="/referenzen" className="hover:text-[#a09282] transition-colors py-1">
-              · Referenzen & Projekte
-            </Link>
             <Link href="/ueber-uns" className="hover:text-[#a09282] transition-colors py-1">
               · Über Liox Fliessen
             </Link>

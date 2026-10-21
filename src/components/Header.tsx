@@ -1,26 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, Link } from '../context/RouterContext';
-import { BUSINESS_CONFIG, SERVICES } from '../config/business';
-import { Phone, Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { BUSINESS_CONFIG } from '../config/business';
+import { Phone, Menu, X } from 'lucide-react';
 
 export function Header() {
   const { currentPath } = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    let previousY = Math.max(0, window.scrollY);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const y = Math.max(0, window.scrollY);
+      setIsScrolled(y > 20);
+      if (y <= 80 || mobileMenuOpen || document.querySelector('header')?.contains(document.activeElement)) {
+        setIsHidden(false);
+      } else if (Math.abs(y - previousY) >= 2) {
+        setIsHidden(y > previousY);
+      }
+      previousY = y;
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--header-offset', isHidden ? '0px' : '80px');
+    return () => { document.documentElement.style.removeProperty('--header-offset'); };
+  }, [isHidden]);
 
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
+    setIsHidden(false);
   }, [currentPath]);
 
   return (
@@ -35,7 +48,8 @@ export function Header() {
 
       {/* Main Top Header adhering strictly to the Top Bar Contract: 3 zones */}
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+        onFocusCapture={() => setIsHidden(false)}
+        className={`sticky top-0 z-40 w-full transition-[transform,background-color,box-shadow] duration-300 ease-in-out ${isHidden && !mobileMenuOpen ? '-translate-y-full' : 'translate-y-0'} ${
           isScrolled
             ? 'bg-[#ece7e1]/95 backdrop-blur-md border-b border-[#a09282]/25 shadow-sm'
             : 'bg-[#ece7e1] border-b border-[#a09282]/15'
@@ -43,14 +57,21 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-8 h-20">
-            {/* Zone 1: Single text element wordmark */}
+            {/* Brand logo */}
             <Link
               href="/"
-              className="group flex items-baseline gap-1 text-2xl font-semibold tracking-tight text-[#2f2e2e] whitespace-nowrap shrink-0 transition-opacity hover:opacity-90"
+              className="flex items-center shrink-0 transition-opacity duration-300 hover:opacity-90"
               aria-label="Liox Fliessen Startseite"
             >
-              <span className="font-serif tracking-normal">Liox</span>
-              <span className="font-sans font-light tracking-widest uppercase text-base text-[#a09282]">Fliessen</span>
+              <span className="flex w-24 h-[76px] items-center justify-center">
+                <img
+                  src="/images/logo1.webp"
+                  alt="Liox Fliesen"
+                  width={1254}
+                  height={1254}
+                  className="block w-full h-full object-contain"
+                />
+              </span>
             </Link>
 
             {/* Zone 2: 4–5 single-line clean text navigation links */}
@@ -66,74 +87,15 @@ export function Header() {
                 Startseite
               </Link>
 
-              {/* Leistungen Dropdown */}
-              <div
-                className="relative py-1"
-                onMouseEnter={() => setServicesDropdownOpen(true)}
-                onMouseLeave={() => setServicesDropdownOpen(false)}
-              >
-                <div className="flex items-center gap-1 cursor-pointer">
-                  <Link
-                    href="/leistungen"
-                    className={`transition-colors whitespace-nowrap shrink-0 border-b-2 ${
-                      currentPath.startsWith('/leistungen')
-                        ? 'border-[#2f2e2e] text-[#2f2e2e]'
-                        : 'border-transparent text-[#2f2e2e]/80 hover:text-[#2f2e2e] hover:border-[#a09282]'
-                    }`}
-                  >
-                    Leistungen
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setServicesDropdownOpen(!servicesDropdownOpen);
-                    }}
-                    className="p-1 text-[#2f2e2e]/70 hover:text-[#2f2e2e]"
-                    aria-expanded={servicesDropdownOpen}
-                    aria-label="Untermenü Leistungen öffnen"
-                  >
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                </div>
-
-                {/* Dropdown Menu */}
-                {servicesDropdownOpen && (
-                  <div className="absolute left-0 top-full pt-2 w-72 z-50">
-                    <div className="bg-[#ece7e1] border border-[#a09282]/30 shadow-lg py-2">
-                      <Link
-                        href="/leistungen"
-                        className="block px-4 py-2.5 text-xs uppercase tracking-wider font-semibold text-[#a09282] hover:bg-[#a09282]/10"
-                      >
-                        Alle Leistungen im Überblick
-                      </Link>
-                      <div className="h-px bg-[#a09282]/20 my-1"></div>
-                      {SERVICES.map((s) => (
-                        <Link
-                          key={s.id}
-                          href={`/leistungen/${s.slug}`}
-                          className={`block px-4 py-2 text-sm text-[#2f2e2e] hover:bg-[#a09282]/15 transition-colors ${
-                            currentPath === `/leistungen/${s.slug}` ? 'bg-[#a09282]/10 font-semibold' : ''
-                          }`}
-                        >
-                          <div className="font-medium">{s.title}</div>
-                          <div className="text-xs text-[#2f2e2e]/60">{s.kicker}</div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-
               <Link
-                href="/referenzen"
+                href="/leistungen"
                 className={`transition-colors py-1 whitespace-nowrap shrink-0 border-b-2 ${
-                  currentPath === '/referenzen'
+                  currentPath === '/leistungen'
                     ? 'border-[#2f2e2e] text-[#2f2e2e]'
                     : 'border-transparent text-[#2f2e2e]/80 hover:text-[#2f2e2e] hover:border-[#a09282]'
                 }`}
               >
-                Referenzen
+                Leistungen
               </Link>
 
               <Link
@@ -210,30 +172,11 @@ export function Header() {
                 Startseite
               </Link>
 
-              <div className="py-2 border-b border-[#a09282]/20">
-                <div className="flex justify-between items-center mb-2">
-                  <Link href="/leistungen" className="font-semibold text-[#2f2e2e]">
-                    Leistungen
-                  </Link>
-                </div>
-                <div className="pl-4 flex flex-col gap-2.5 text-sm text-[#2f2e2e]/80">
-                  {SERVICES.map((s) => (
-                    <Link
-                      key={s.id}
-                      href={`/leistungen/${s.slug}`}
-                      className={`hover:text-[#2f2e2e] ${currentPath === `/leistungen/${s.slug}` ? 'font-semibold text-[#2f2e2e]' : ''}`}
-                    >
-                      {s.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
               <Link
-                href="/referenzen"
-                className={`py-2 border-b border-[#a09282]/20 ${currentPath === '/referenzen' ? 'font-bold text-[#2f2e2e]' : ''}`}
+                href="/leistungen"
+                className={`py-2 border-b border-[#a09282]/20 ${currentPath === '/leistungen' ? 'font-bold text-[#2f2e2e]' : ''}`}
               >
-                Referenzen
+                Leistungen
               </Link>
 
               <Link

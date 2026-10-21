@@ -1,3 +1,5 @@
+import { PageHero } from '../components/PageHero';
+import contactHero from '../assets/images/service_bathroom_1792594034710.webp';
 import React from 'react';
 import { BUSINESS_CONFIG } from '../config/business';
 import { SeoMeta } from '../components/SeoMeta';
@@ -12,22 +14,13 @@ export function ContactPage() {
         description={`Fordern Sie Ihr unverbindliches Angebot für Fliesenarbeiten, Badsanierung oder Terrassenverlegung in ${BUSINESS_CONFIG.city} und Umgebung an.`}
       />
 
-      {/* Header */}
-      <section className="py-16 lg:py-24 border-b border-[#a09282]/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-3">
-              Erstkontakt & Beratung
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-serif text-[#2f2e2e] mb-6 leading-tight [text-wrap:balance]">
-              Lassen Sie uns über Ihr Vorhaben sprechen.
-            </h1>
-            <p className="text-lg text-[#2f2e2e]/85 leading-relaxed">
-              Ob Neubau, Badsanierung oder großformatige Bodenbeläge: Füllen Sie das Formular aus oder rufen Sie uns direkt an. Wir melden uns verlässlich innerhalb von 1–2 Werktagen.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        image={contactHero}
+        imageAlt="Modernes Badezimmer mit warmen Natursteinfliesen"
+        eyebrow="Kontakt & Beratung"
+        title="Ihr Projekt beginnt mit einem Gespräch."
+        description="Erzählen Sie uns von Ihrer Idee. Wir beraten Sie persönlich und unverbindlich."
+      />
 
       {/* Main Contact Section */}
       <section className="py-20">
@@ -56,7 +49,7 @@ export function ContactPage() {
                         >
                           {BUSINESS_CONFIG.phone}
                         </a>
-                        <div className="text-xs text-[#2f2e2e]/60 mt-1">
+                        <div className="text-xs text-[#2f2e2e]/75 mt-1">
                           Erreichbar: {BUSINESS_CONFIG.businessHours}
                         </div>
                       </div>
@@ -78,7 +71,7 @@ export function ContactPage() {
                         >
                           {BUSINESS_CONFIG.email}
                         </a>
-                        <div className="text-xs text-[#2f2e2e]/60 mt-1">
+                        <div className="text-xs text-[#2f2e2e]/75 mt-1">
                           Gerne können Sie uns Pläne und Maßskizzen vorab per E-Mail zusenden.
                         </div>
                       </div>
@@ -100,7 +93,7 @@ export function ContactPage() {
                         <div className="text-sm text-[#2f2e2e]/80">
                           {BUSINESS_CONFIG.address}
                         </div>
-                        <div className="text-xs text-[#2f2e2e]/60 mt-1">
+                        <div className="text-xs text-[#2f2e2e]/75 mt-1">
                           Standort: {BUSINESS_CONFIG.city}
                         </div>
                       </div>

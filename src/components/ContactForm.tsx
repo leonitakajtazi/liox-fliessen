@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SERVICES, BUSINESS_CONFIG } from '../config/business';
+import { BUSINESS_CONFIG } from '../config/business';
 import { Link } from '../context/RouterContext';
 import { CheckCircle2, AlertCircle, Loader2, Send, Phone } from 'lucide-react';
 
@@ -11,11 +11,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    cityOrZip: '',
-    service: defaultService || 'fliesenverlegung',
-    areaM2: '',
-    timeframe: 'In den nächsten 1–2 Monaten',
+    service: defaultService || 'sonstiges',
     message: '',
     privacyAccepted: false,
     honeypot: '', // Spam bot protection
@@ -41,9 +37,6 @@ export function ContactForm({ defaultService }: ContactFormProps) {
       newErrors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
     }
 
-    if (!formData.service) {
-      newErrors.service = 'Bitte wählen Sie eine Leistung aus.';
-    }
 
     if (!formData.message.trim() || formData.message.trim().length < 10) {
       newErrors.message = 'Bitte beschreiben Sie Ihr Vorhaben in mindestens 10 Zeichen.';
@@ -88,11 +81,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
         setFormData({
           name: '',
           email: '',
-          phone: '',
-          cityOrZip: '',
-          service: defaultService || 'fliesenverlegung',
-          areaM2: '',
-          timeframe: 'In den nächsten 1–2 Monaten',
+          service: defaultService || 'sonstiges',
           message: '',
           privacyAccepted: false,
           honeypot: '',
@@ -124,7 +113,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
           Unverbindliches Angebot anfordern
         </h3>
         <p className="text-sm text-[#2f2e2e]/75">
-          Teilen Sie uns die Eckdaten Ihres Projekts mit. Wir prüfen Ihre Anforderungen sorgfältig und melden uns innerhalb von 1–2 Werktagen.
+          Schreiben Sie uns kurz Ihr Anliegen. Wir melden uns innerhalb von 1–2 Werktagen.
         </p>
       </div>
 
@@ -219,101 +208,10 @@ export function ContactForm({ defaultService }: ContactFormProps) {
           </div>
         </div>
 
-        {/* Row 2: Phone & Location */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="form-phone" className="block text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] mb-2">
-              Telefonnummer <span className="text-xs font-normal text-[#2f2e2e]/60 lowercase">(optional für Rückfragen)</span>
-            </label>
-            <input
-              id="form-phone"
-              type="tel"
-              name="phone"
-              autoComplete="tel"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full px-4 py-3 bg-[#ece7e1]/20 border border-[#a09282]/40 text-[#2f2e2e] text-sm focus:border-[#2f2e2e] focus:bg-white transition-colors"
-              placeholder="+49 170 1234567"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="form-city" className="block text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] mb-2">
-              PLZ / Projektstandort
-            </label>
-            <input
-              id="form-city"
-              type="text"
-              name="cityOrZip"
-              autoComplete="postal-code"
-              value={formData.cityOrZip}
-              onChange={(e) => setFormData({ ...formData, cityOrZip: e.target.value })}
-              className="w-full px-4 py-3 bg-[#ece7e1]/20 border border-[#a09282]/40 text-[#2f2e2e] text-sm focus:border-[#2f2e2e] focus:bg-white transition-colors"
-              placeholder="z. B. 80331 München oder Umgebung"
-            />
-          </div>
-        </div>
-
-        {/* Row 3: Service, Area & Timeframe */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div>
-            <label htmlFor="form-service" className="block text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] mb-2">
-              Gewünschte Leistung <span className="text-[#a09282]">*</span>
-            </label>
-            <select
-              id="form-service"
-              name="service"
-              value={formData.service}
-              onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-              className="w-full px-4 py-3 bg-[#ece7e1]/20 border border-[#a09282]/40 text-[#2f2e2e] text-sm focus:border-[#2f2e2e] focus:bg-white transition-colors"
-            >
-              {SERVICES.map((s) => (
-                <option key={s.id} value={s.id}>
-                  {s.title}
-                </option>
-              ))}
-              <option value="sonstiges">Sonstige Fliesen- / Sanierungsarbeit</option>
-            </select>
-          </div>
-
-          <div>
-            <label htmlFor="form-area" className="block text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] mb-2">
-              Geschätzte Fläche (m²)
-            </label>
-            <input
-              id="form-area"
-              type="text"
-              name="areaM2"
-              value={formData.areaM2}
-              onChange={(e) => setFormData({ ...formData, areaM2: e.target.value })}
-              className="w-full px-4 py-3 bg-[#ece7e1]/20 border border-[#a09282]/40 text-[#2f2e2e] text-sm focus:border-[#2f2e2e] focus:bg-white transition-colors"
-              placeholder="z. B. 45 m²"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="form-timeframe" className="block text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] mb-2">
-              Geplanter Zeitraum
-            </label>
-            <select
-              id="form-timeframe"
-              name="timeframe"
-              value={formData.timeframe}
-              onChange={(e) => setFormData({ ...formData, timeframe: e.target.value })}
-              className="w-full px-4 py-3 bg-[#ece7e1]/20 border border-[#a09282]/40 text-[#2f2e2e] text-sm focus:border-[#2f2e2e] focus:bg-white transition-colors"
-            >
-              <option value="Schnellstmöglich">Schnellstmöglich</option>
-              <option value="In den nächsten 1–2 Monaten">In den nächsten 1–2 Monaten</option>
-              <option value="In 3–6 Monaten">In 3–6 Monaten</option>
-              <option value="Noch in der Planungsphase">Noch in der Planungsphase</option>
-            </select>
-          </div>
-        </div>
-
         {/* Message */}
         <div>
           <label htmlFor="form-message" className="block text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] mb-2">
-            Projektbeschreibung <span className="text-[#a09282]">*</span>
+            Ihre Nachricht <span className="text-[#a09282]">*</span>
           </label>
           <textarea
             id="form-message"
@@ -328,7 +226,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
             className={`w-full px-4 py-3 bg-[#ece7e1]/20 border ${
               errors.message ? 'border-red-500' : 'border-[#a09282]/40'
             } text-[#2f2e2e] text-sm focus:border-[#2f2e2e] focus:bg-white transition-colors`}
-            placeholder="Beschreiben Sie kurz Ihr Vorhaben: Raumart, aktueller Untergrund, bevorzugte Fliesenformate oder besondere Wünsche (z. B. bodengleiche Dusche, Gehrungskanten)."
+            placeholder="Wie können wir Ihnen helfen?"
           ></textarea>
           {errors.message && <p className="mt-1.5 text-xs text-red-600 font-medium">{errors.message}</p>}
         </div>

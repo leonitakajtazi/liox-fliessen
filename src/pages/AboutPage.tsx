@@ -1,3 +1,5 @@
+import { PageHero } from '../components/PageHero';
+
 import React from 'react';
 import { BUSINESS_CONFIG } from '../config/business';
 import { SeoMeta } from '../components/SeoMeta';
@@ -12,32 +14,23 @@ export function AboutPage() {
         description={`Handwerkliche Sorgfalt, präzise Planung und Respekt vor der Bausubstanz. Erfahren Sie mehr über Liox Fliessen in ${BUSINESS_CONFIG.city} und Umgebung.`}
       />
 
-      {/* Header */}
-      <section className="py-16 lg:py-24 border-b border-[#a09282]/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-3">
-              Handwerk aus Überzeugung
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-serif text-[#2f2e2e] mb-6 leading-tight [text-wrap:balance]">
-              Präzision im Detail. Respekt vor Raum und Material.
-            </h1>
-            <p className="text-lg text-[#2f2e2e]/85 leading-relaxed">
-              Bei Liox Fliessen verstehen wir unser Handwerk als Zusammenspiel aus akribischer Vorbereitung, moderner Werkzeugtechnik und dem geschulten Auge für harmonische Raumfluchten.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        image="/images/outside2.webp"
+        imageAlt="Großformatige Terrassenfliesen an einem modernen Haus mit Garten"
+        eyebrow="Über Liox Fliesen"
+        title="Handwerk mit Sorgfalt und Charakter."
+        description="Wir verbinden präzise Arbeit mit einem Blick für Räume, Materialien und die Menschen dahinter."
+      />
 
       {/* Philosophy & Approach */}
       <section className="py-20 border-b border-[#a09282]/20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
-              <div className="aspect-[4/3] bg-[#2f2e2e] border border-[#a09282]/30 overflow-hidden shadow-sm">
+              <div className="aspect-[4/3] bg-[#2f2e2e] overflow-hidden">
                 <img
-                  src="/src/assets/images/craftsmanship_detail_1792594035805.jpg"
-                  alt="Akkurate handwerkliche Fliesenbearbeitung im Detail"
+                  src="/images/outside.webp"
+                  alt="Präzise verlegte Terrassenplatten vor einem modernen Wohnhaus"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   referrerPolicy="no-referrer"

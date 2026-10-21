@@ -1,14 +1,24 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import {defineConfig, loadEnv} from 'vite';
+import fs from 'node:fs';
+import { robots, sitemap, siteOrigin } from './seo.ts';
+import { fileURLToPath } from 'node:url';
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const origin = siteOrigin(loadEnv(mode, process.cwd(), '').VITE_SITE_URL);
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), {
+      name: 'site-seo',
+      closeBundle() {
+        fs.writeFileSync('dist/robots.txt', robots(origin));
+        fs.writeFileSync('dist/sitemap.xml', sitemap(origin));
+      },
+    }],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': fileURLToPath(new URL('.', import.meta.url)),
       },
     },
     server: {

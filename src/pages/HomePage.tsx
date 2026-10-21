@@ -1,35 +1,25 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { FaqItem } from '../components/FaqItem';
+import materialImage from '../assets/images/service_large_format_1792594035315.webp';
+import bundledImage0 from '../assets/images/hero_liox_tiles_1792594033003.webp';
+import React, { useRef, useEffect } from 'react';
 import { Link } from '../context/RouterContext';
 import { BUSINESS_CONFIG, SERVICES, WORK_PROCESS, GENERAL_FAQS, PROJECTS } from '../config/business';
 import { SeoMeta } from '../components/SeoMeta';
 import { ContactForm } from '../components/ContactForm';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
-import { ArrowRight, Check, Shield, Layers, Compass, Ruler, Sparkles, Phone, HelpCircle, Play, Pause, VolumeX } from 'lucide-react';
+import { ArrowRight, Check, Shield, Layers, Compass, Ruler, Sparkles, Phone, HelpCircle, MapPin } from 'lucide-react';
 
 export function HomePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {
-        // Autoplay fallback for strict browser policies
-      });
-    }
+    const video = videoRef.current;
+    if (!video) return;
+    video.defaultMuted = true;
+    video.muted = true;
+    video.play().catch(() => {});
   }, []);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
-    }
-  };
 
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
@@ -41,23 +31,21 @@ export function HomePage() {
       {/* ---------------------------------------------------- */}
       {/* 1. Hero Section with Looping Background Video (Muted)*/}
       {/* ---------------------------------------------------- */}
-      <section className="relative overflow-hidden min-h-[520px] sm:min-h-[600px] lg:min-h-[720px] flex items-center bg-[#2f2e2e]">
+      <section className="hero-surface relative overflow-hidden min-h-[520px] sm:min-h-[600px] lg:min-h-[720px] flex items-center bg-[#2f2e2e]">
         {/* Background Video Layer - Optimized for Mobile & Desktop */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             ref={videoRef}
+            src="/assets/aistudio/gemini_generated_video_e6a6855f_7090bfd6.mp4"
             autoPlay
+            preload="metadata"
             loop
             muted
             playsInline
-            poster="/src/assets/images/hero_liox_tiles_1792594033003.jpg"
+            poster={bundledImage0}
             className="w-full h-full object-cover object-[62%_center] sm:object-center scale-100"
             aria-hidden="true"
           >
-            <source
-              src="/assets/aistudio/gemini_generated_video_e6a6855f_7090bfd6.mp4"
-              type="video/mp4"
-            />
           </video>
 
           {/* Balanced cinematic scrim: soft on mobile, directional on desktop */}
@@ -70,8 +58,8 @@ export function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             {/* Left Column (7 cols on desktop, full width on mobile) */}
-            <div className="lg:col-span-7 flex flex-col justify-center">
-              {/* Unboxed natural kicker + Mobile Video Toggle */}
+            <div data-reveal-sequence className="lg:col-span-7 flex flex-col justify-center">
+              {/* Hero introduction */}
               <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#a09282]">
                   <span className="w-2 h-2 bg-[#a09282] animate-pulse"></span>
@@ -80,16 +68,7 @@ export function HomePage() {
                   <span className="hidden sm:inline">{BUSINESS_CONFIG.city} & Umgebung</span>
                 </div>
 
-                {/* Mobile video pause/play toggle button */}
-                <button
-                  type="button"
-                  onClick={togglePlay}
-                  className="lg:hidden p-1.5 text-[#ece7e1] bg-[#2f2e2e]/60 backdrop-blur-sm border border-[#a09282]/40 hover:text-white transition-colors"
-                  aria-label={isPlaying ? "Hintergrundvideo pausieren" : "Hintergrundvideo abspielen"}
-                  title={isPlaying ? "Video pausieren" : "Video abspielen"}
-                >
-                  {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                </button>
+
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif tracking-tight text-[#ece7e1] leading-[1.12] mb-4 sm:mb-6 [text-wrap:balance] drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
@@ -106,17 +85,17 @@ export function HomePage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <Link
                   href="/kontakt"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#ece7e1] text-[#2f2e2e] text-xs font-semibold uppercase tracking-wider border border-[#ece7e1] hover:bg-[#a09282] hover:text-[#ece7e1] hover:border-[#a09282] active:bg-[#ece7e1] transition-all shadow-lg text-center font-bold"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#ece7e1] text-[#2f2e2e] text-xs font-semibold uppercase tracking-wider border border-[#ece7e1] hover:bg-[#a09282] hover:text-[#ece7e1] hover:border-[#a09282] active:bg-[#ece7e1] transition-[background-color,color,border-color,box-shadow] duration-500 ease-in-out hover:shadow-xl text-center shadow-lg"
                 >
                   Unverbindliches Angebot anfordern
                 </Link>
 
                 <Link
-                  href="/referenzen"
-                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#2f2e2e]/50 backdrop-blur-sm text-[#ece7e1] text-xs font-semibold uppercase tracking-wider border border-[#a09282] hover:bg-[#a09282]/30 transition-colors text-center group shadow-md"
+                  href="/leistungen"
+                  className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#2f2e2e]/50 backdrop-blur-sm text-[#ece7e1] text-xs font-semibold uppercase tracking-wider border border-[#a09282] hover:bg-[#a09282]/30 transition-[background-color,color,border-color,box-shadow] duration-500 ease-in-out hover:shadow-lg text-center group shadow-md"
                 >
-                  <span>Projekte ansehen</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform text-[#a09282]" />
+                  <span>Leistungen entdecken</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-500 ease-in-out text-[#a09282]" />
                 </Link>
               </div>
 
@@ -137,60 +116,6 @@ export function HomePage() {
               </div>
             </div>
 
-            {/* Right Column (5 cols): Glass Card on Desktop, keeping mobile free for video viewing */}
-            <div className="hidden lg:block lg:col-span-5 relative">
-              <div className="bg-[#2f2e2e]/60 backdrop-blur-md border border-[#a09282]/40 p-6 sm:p-8 shadow-2xl relative">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#a09282]/30">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 bg-[#a09282] animate-pulse"></span>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#a09282]">
-                      Meisterhafte Ausführung
-                    </span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={togglePlay}
-                    className="p-1.5 text-[#ece7e1]/80 hover:text-white transition-colors"
-                    aria-label={isPlaying ? "Hintergrundvideo pausieren" : "Hintergrundvideo abspielen"}
-                    title={isPlaying ? "Video pausieren" : "Video abspielen"}
-                  >
-                    {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                  </button>
-                </div>
-
-                <h3 className="text-xl font-serif text-[#ece7e1] mb-2">
-                  Präzision in Bewegung
-                </h3>
-                <p className="text-xs text-[#ece7e1]/80 leading-relaxed mb-6">
-                  Vom gleichmäßigen Zahnspachtelauftrag im Buttering-Floating-Verfahren bis zum millimetergenauen Fugenabgleich mit Spezial-Nivellierlaschen.
-                </p>
-
-                <div className="space-y-3 text-xs text-[#ece7e1]/90">
-                  <div className="flex items-center justify-between py-1.5 border-b border-[#a09282]/20">
-                    <span className="text-[#ece7e1]/70">Verfahren:</span>
-                    <span className="font-semibold text-[#ece7e1]">Buttering-Floating</span>
-                  </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-[#a09282]/20">
-                    <span className="text-[#ece7e1]/70">Kanten:</span>
-                    <span className="font-semibold text-[#ece7e1]">45° Jolly-Gehrung</span>
-                  </div>
-                  <div className="flex items-center justify-between py-1.5 border-b border-[#a09282]/20">
-                    <span className="text-[#ece7e1]/70">Toleranz:</span>
-                    <span className="font-semibold text-[#a09282]">DIN 18202 (Ebenheit)</span>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-[#a09282]/30 flex items-center justify-between text-[11px] text-[#ece7e1]/65">
-                  <span className="flex items-center gap-1.5">
-                    <VolumeX className="w-3.5 h-3.5 text-[#a09282]" />
-                    Stummgeschaltet (ohne Ton)
-                  </span>
-                  <Link href="/ueber-uns" className="text-[#a09282] hover:text-[#ece7e1] underline">
-                    Details →
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -244,13 +169,13 @@ export function HomePage() {
             {SERVICES.map((service, index) => (
               <div
                 key={service.id}
-                className="bg-white border border-[#a09282]/30 flex flex-col justify-between group hover:border-[#a09282] transition-all duration-300"
+                className="bg-white border border-[#a09282]/30 flex flex-col justify-between group hover:border-[#a09282] transition-colors duration-300"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-[#2f2e2e] relative">
                   <img
                     src={service.image}
                     alt={service.imageAlt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover card-image-zoom"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
@@ -283,7 +208,7 @@ export function HomePage() {
 
                   <div className="pt-4 border-t border-[#a09282]/20 flex items-center justify-between">
                     <Link
-                      href={`/leistungen/${service.slug}`}
+                      href={`/leistungen#${service.slug}`}
                       className="text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] group-hover:text-[#a09282] transition-colors flex items-center gap-2"
                     >
                       <span>Leistungsdetails & Ablauf</span>
@@ -311,7 +236,7 @@ export function HomePage() {
                 Einblick in unsere Verlegequalität
               </h2>
             </div>
-            <div className="text-xs text-[#2f2e2e]/60 max-w-sm">
+            <div className="text-xs text-[#2f2e2e]/75 max-w-sm">
               Demonstrations-Galerie architektonischer Verlegungen. Gerne zeigen wir Ihnen im persönlichen Gespräch weitere Details.
             </div>
           </div>
@@ -327,7 +252,7 @@ export function HomePage() {
                     <img
                       src={proj.image}
                       alt={proj.imageAlt}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover card-image-zoom"
                       loading="lazy"
                       referrerPolicy="no-referrer"
                     />
@@ -354,15 +279,6 @@ export function HomePage() {
                     </div>
                   </div>
                 </div>
-
-                <div className="p-6 pt-0">
-                  <Link
-                    href={`/referenzen`}
-                    className="block w-full py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] border border-[#a09282] hover:bg-[#a09282]/10 transition-colors"
-                  >
-                    Projekt ansehen
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
@@ -382,8 +298,8 @@ export function HomePage() {
             </div>
 
             <BeforeAfterSlider
-              beforeImage='/images/8.png'
-              afterImage='/images/9.jpg'
+              beforeImage='/images/8.webp'
+              afterImage='/images/9.webp'
               beforeAlt="Badezimmer vor der Sanierung"
               afterAlt="Badezimmer nach der Sanierung mit exklusiven großformatigen Kalksteinfliesen von Liox Fliessen"
               beforeLabel="Vorher"
@@ -440,10 +356,10 @@ export function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
-              <div className="aspect-[4/3] bg-[#2f2e2e] border border-[#a09282]/30 overflow-hidden">
+              <div className="aspect-[4/3] bg-[#2f2e2e] overflow-hidden">
                 <img
-                  src="/src/assets/images/craftsmanship_detail_1792594035805.jpg"
-                  alt="Detailaufnahme einer akkurat gefugten Fliesenecke mit Gehrungsschnitt"
+                  src={materialImage}
+                  alt="Heller Wohnbereich mit großformatigen Natursteinfliesen und feinen Fugen"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   referrerPolicy="no-referrer"
@@ -467,14 +383,28 @@ export function HomePage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 text-xs">
-                <div className="p-4 bg-white border border-[#a09282]/30">
-                  <div className="font-semibold text-[#2f2e2e] mb-1">Gehrungskanten (Jolly)</div>
-                  <div className="text-[#2f2e2e]/70">Schliff im 45°-Winkel für edle Kanten ohne Schienen</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="group relative overflow-hidden rounded-xl bg-[#2f2e2e] p-6 text-[#ece7e1] shadow-sm transition-shadow duration-500 hover:shadow-lg">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#a09282]/20 text-[#d4c4b1]">
+                      <Ruler className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                    </span>
+                    <span className="text-3xl font-serif text-[#d4c4b1]">45°</span>
+                  </div>
+                  <h3 className="font-serif text-xl leading-snug mb-2">Gehrungskanten <span className="block text-sm font-sans text-[#d4c4b1] mt-1">Jolly-Schnitt</span></h3>
+                  <p className="text-xs leading-relaxed text-[#ece7e1]/80">Präziser Schliff im 45°-Winkel für elegante Kanten ohne sichtbare Schienen.</p>
+                  <div className="mt-5 pt-4 border-t border-[#ece7e1]/15 text-[10px] uppercase tracking-widest text-[#d4c4b1]">Feine Kanten. Klare Linien.</div>
                 </div>
-                <div className="p-4 bg-white border border-[#a09282]/30">
-                  <div className="font-semibold text-[#2f2e2e] mb-1">Buttering-Floating</div>
-                  <div className="text-[#2f2e2e]/70">Hohlraumfreie Einbettung für höchste Druckfestigkeit</div>
+                <div className="group relative overflow-hidden rounded-xl bg-[#f6f3ef] p-6 ring-1 ring-inset ring-[#a09282]/25 shadow-sm transition-shadow duration-500 hover:shadow-lg">
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-[#a09282]/15 text-[#756451]">
+                      <Layers className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                    </span>
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-[#756451]">Starker Verbund</span>
+                  </div>
+                  <h3 className="font-serif text-xl leading-snug mb-2">Buttering-Floating <span className="block text-sm font-sans text-[#756451] mt-1">Doppelte Kleberauftragung</span></h3>
+                  <p className="text-xs leading-relaxed text-[#2f2e2e]/80">Kleber auf Untergrund und Fliesenrückseite für eine hohlraumfreie, belastbare Verlegung.</p>
+                  <div className="mt-5 pt-4 border-t border-[#a09282]/25 text-[10px] uppercase tracking-widest text-[#756451]">Sicherer Halt. Dauerhafte Qualität.</div>
                 </div>
               </div>
             </div>
@@ -501,20 +431,7 @@ export function HomePage() {
 
           <div className="space-y-4">
             {GENERAL_FAQS.map((faq, index) => (
-              <details
-                key={index}
-                className="group bg-white border border-[#a09282]/30 p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer"
-              >
-                <summary className="flex items-center justify-between text-base font-semibold text-[#2f2e2e] gap-4">
-                  <span>{faq.question}</span>
-                  <span className="text-[#a09282] text-xl font-light transition-transform duration-200 group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <div className="mt-4 pt-4 border-t border-[#a09282]/20 text-sm text-[#2f2e2e]/80 leading-relaxed">
-                  {faq.answer}
-                </div>
-              </details>
+              <FaqItem key={index} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </div>
@@ -541,7 +458,7 @@ export function HomePage() {
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
                   <div>
-                    <div className="text-xs text-[#2f2e2e]/60">Telefonischer Direktkontakt:</div>
+                    <div className="text-xs text-[#2f2e2e]/75">Telefonischer Direktkontakt:</div>
                     <a
                       href={`tel:${BUSINESS_CONFIG.phoneRaw}`}
                       className="font-semibold text-base hover:text-[#a09282] transition-colors tabular-nums"
@@ -552,9 +469,9 @@ export function HomePage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="text-xs text-[#2f2e2e]/60 w-5 text-center font-bold text-[#a09282]">@</div>
+                  <div className="text-xs text-[#2f2e2e]/75 w-5 text-center font-bold text-[#a09282]">@</div>
                   <div>
-                    <div className="text-xs text-[#2f2e2e]/60">E-Mail für Pläne & Unterlagen:</div>
+                    <div className="text-xs text-[#2f2e2e]/75">E-Mail für Pläne & Unterlagen:</div>
                     <a
                       href={`mailto:${BUSINESS_CONFIG.email}`}
                       className="font-semibold text-base hover:text-[#a09282] transition-colors"
@@ -565,9 +482,21 @@ export function HomePage() {
                 </div>
               </div>
 
-              <div className="p-4 bg-white border border-[#a09282]/30 text-xs text-[#2f2e2e]/75">
-                <strong className="text-[#2f2e2e] block mb-1">Standort & Einsatzbereich:</strong>
-                {BUSINESS_CONFIG.address} · Tätig in {BUSINESS_CONFIG.serviceArea}
+              <div className="relative overflow-hidden rounded-xl bg-[#f6f3ef] p-6 sm:p-7 ring-1 ring-inset ring-[#a09282]/20">
+                <div className="absolute inset-y-6 left-0 w-[3px] rounded-r-full bg-[#a09282]" aria-hidden="true" />
+                <div className="flex items-start gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#a09282]/15 text-[#756451]">
+                    <MapPin className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-xl text-[#2f2e2e] mb-2">Standort & Einsatzbereich</h3>
+                    <p className="text-sm leading-relaxed text-[#2f2e2e]/80 break-words">{BUSINESS_CONFIG.address}</p>
+                    <div className="mt-4 pt-3 border-t border-[#a09282]/25">
+                      <span className="block text-[10px] uppercase tracking-widest font-semibold text-[#756451] mb-1">Für Sie vor Ort</span>
+                      <p className="text-xs leading-relaxed text-[#2f2e2e]/80 break-words">{BUSINESS_CONFIG.serviceArea}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

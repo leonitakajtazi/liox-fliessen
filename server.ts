@@ -1,4 +1,7 @@
+import 'dotenv/config';
+import { robots, sitemap, siteOrigin } from './seo.ts';
 import express, { Request, Response } from 'express';
+import compression from 'compression';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -11,6 +14,7 @@ const PORT = Number(process.env.PORT) || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
 
 app.use(express.json());
+app.use(compression());
 
 // In-Memory Rate Limiting for Contact Submissions
 const rateLimitMap = new Map<string, { count: number; firstSeen: number }>();
@@ -56,46 +60,19 @@ function isRateLimited(ip: string): boolean {
 // ----------------------------------------------------
 // Robots.txt Handler
 // ----------------------------------------------------
-app.get('/robots.txt', (_req: Request, res: Response) => {
-  res.type('text/plain');
-  res.send(`User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://[DOMAIN]/sitemap.xml\n`);
+app.get('/robots.txt', (req: Request, res: Response) => {
+  const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
+  res.type('text/plain').send(robots(origin));
 });
 
-// ----------------------------------------------------
-// Sitemap.xml Handler
-// ----------------------------------------------------
-app.get('/sitemap.xml', (_req: Request, res: Response) => {
-  const currentDate = new Date().toISOString().split('T')[0];
-  const pages = [
-    { url: '/', priority: '1.0', changefreq: 'weekly' },
-    { url: '/leistungen/', priority: '0.9', changefreq: 'weekly' },
-    { url: '/leistungen/fliesenverlegung/', priority: '0.8', changefreq: 'monthly' },
-    { url: '/leistungen/badfliesen/', priority: '0.8', changefreq: 'monthly' },
-    { url: '/leistungen/grossformatfliesen/', priority: '0.8', changefreq: 'monthly' },
-    { url: '/leistungen/terrassenfliesen/', priority: '0.8', changefreq: 'monthly' },
-    { url: '/referenzen/', priority: '0.8', changefreq: 'weekly' },
-    { url: '/ueber-uns/', priority: '0.7', changefreq: 'monthly' },
-    { url: '/kontakt/', priority: '0.9', changefreq: 'monthly' },
-    { url: '/impressum/', priority: '0.3', changefreq: 'yearly' },
-    { url: '/datenschutz/', priority: '0.3', changefreq: 'yearly' },
-  ];
+app.get('/sitemap.xml', (req: Request, res: Response) => {
+  const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
+  res.type('application/xml').send(sitemap(origin));
+});
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages
-  .map(
-    (p) => `  <url>
-    <loc>https://[DOMAIN]${p.url}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>
-  </url>`
-  )
-  .join('\n')}
-</urlset>`;
-
-  res.type('application/xml');
-  res.send(xml);
+// Former service detail pages now live as sections on /leistungen
+app.get('/leistungen/:slug', (req: Request, res: Response) => {
+  res.redirect(301, `/leistungen#${encodeURIComponent(req.params.slug)}`);
 });
 
 // ----------------------------------------------------
@@ -208,7 +185,13 @@ async function startServer() {
   } else {
     // Serve production build files
     const distPath = path.resolve(__dirname, 'dist');
-    app.use(express.static(distPath));
+    app.use(express.static(distPath, {
+      setHeaders(res, filePath) {
+        if (filePath.includes(`${path.sep}assets${path.sep}`)) {
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+      },
+    }));
     app.get('*', (_req: Request, res: Response) => {
       const indexPath = path.join(distPath, 'index.html');
       if (fs.existsSync(indexPath)) {
