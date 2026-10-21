@@ -121,7 +121,7 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Eine Fliese-auf-Fliese-Verlegung ist grundsätzlich möglich, wenn der Altbelag tragfähig, hohlraumfrei und fest haftend ist. Dies wird im Vor-Ort-Termin detailliert geprüft und mit Spezialhaftgrund vorbereitet.',
       },
     ],
-    image: '/src/assets/images/craftsmanship_detail_1792594035805.jpg',
+    image: '/images/1.jpg',
     imageAlt: 'Präzise Fliesenverlegung im Detail mit exakter Fugenkante',
   },
   {
