@@ -51,7 +51,7 @@ function AppContent({ loading }: { loading: boolean }) {
     <div className="min-h-screen flex flex-col bg-[#ece7e1] text-[#2f2e2e]">
       <Header />
       {!loading && <ScrollAnimations route={path} />}
-      <main id="main-content" className="flex-1" inert={loading}>
+      <main id="main-content" data-ready={!loading} className="flex-1" inert={loading}>
         <Suspense fallback={<div className="min-h-[60vh]" role="status" aria-label="Seite wird geladen" />}>{renderPage()}</Suspense>
       </main>
       <Footer />

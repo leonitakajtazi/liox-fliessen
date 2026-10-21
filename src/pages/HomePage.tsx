@@ -58,9 +58,9 @@ export function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             {/* Left Column (7 cols on desktop, full width on mobile) */}
-            <div data-reveal-sequence className="lg:col-span-7 flex flex-col justify-center">
+            <div data-hero-sequence className="lg:col-span-7 flex flex-col justify-center">
               {/* Hero introduction */}
-              <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
+              <div data-hero-step="0" className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#a09282]">
                   <span className="w-2 h-2 bg-[#a09282] animate-pulse"></span>
                   <span>Handwerkliche Präzision</span>
@@ -72,17 +72,17 @@ export function HomePage() {
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif tracking-tight text-[#ece7e1] leading-[1.12] mb-4 sm:mb-6 [text-wrap:balance] drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
-                Präzise verlegt. <br />
-                <span className="italic font-normal text-[#a09282]">Zeitlos schön.</span>
+                <span data-hero-step="1" className="block">Präzise verlegt.</span>
+                <span data-hero-step="2" className="block italic font-normal text-[#a09282]">Zeitlos schön.</span>
               </h1>
 
-              <p className="text-sm sm:text-lg lg:text-xl text-[#ece7e1] leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
+              <p data-hero-step="3" className="text-sm sm:text-lg lg:text-xl text-[#ece7e1] leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
                 Fliesenarbeiten für anspruchsvolle Wohn- und Geschäftsräume in{' '}
                 <strong className="font-semibold text-white">{BUSINESS_CONFIG.city}</strong> und Umgebung. Von modernen Bädern bis zu fugenarmen Großformaten.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+              <div data-hero-step="4" className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10">
                 <Link
                   href="/kontakt"
                   className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#ece7e1] text-[#2f2e2e] text-xs font-semibold uppercase tracking-wider border border-[#ece7e1] hover:bg-[#a09282] hover:text-[#ece7e1] hover:border-[#a09282] active:bg-[#ece7e1] transition-[background-color,color,border-color,box-shadow] duration-500 ease-in-out hover:shadow-xl text-center shadow-lg"
@@ -100,7 +100,7 @@ export function HomePage() {
               </div>
 
               {/* Trust markers */}
-              <div className="pt-4 sm:pt-6 border-t border-[#a09282]/40 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 text-xs text-[#ece7e1] drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+              <div data-hero-step="5" className="pt-4 sm:pt-6 border-t border-[#a09282]/40 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 text-xs text-[#ece7e1] drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
                 <div>
                   <div className="font-semibold text-white text-sm">DIN 18534</div>
                   <div className="text-[#ece7e1]/85">Fachgerechte Badabdichtung</div>
@@ -123,7 +123,7 @@ export function HomePage() {
       {/* ---------------------------------------------------- */}
       {/* 2. Introduction Section                              */}
       {/* ---------------------------------------------------- */}
-      <section className="py-20 lg:py-28 bg-[#ece7e1] border-b border-[#a09282]/20">
+      <section className="pt-14 lg:pt-20 pb-10 lg:pb-12 bg-[#ece7e1] border-b border-[#a09282]/20">
         <div data-reveal-sequence className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-3">
             Über Liox Fliessen
@@ -142,7 +142,7 @@ export function HomePage() {
       {/* ---------------------------------------------------- */}
       {/* 3. Confirmed Services (Bento Grid)                   */}
       {/* ---------------------------------------------------- */}
-      <section className="py-20 lg:py-28 bg-[#ece7e1] border-b border-[#a09282]/20">
+      <section className="pt-10 lg:pt-12 pb-20 lg:pb-28 bg-[#ece7e1] border-b border-[#a09282]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>

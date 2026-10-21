@@ -85,6 +85,30 @@ html {
   to { opacity: 1; transform: translateY(0); }
 }
 
+[data-hero-step] {
+  opacity: 0;
+  --hero-delay: 0ms;
+}
+[data-hero-step="1"] { --hero-delay: 180ms; }
+[data-hero-step="2"] { --hero-delay: 360ms; }
+[data-hero-step="3"] { --hero-delay: 540ms; }
+[data-hero-step="4"] { --hero-delay: 720ms; }
+[data-hero-step="5"] { --hero-delay: 900ms; }
+
+main[data-ready="true"] [data-hero-step] {
+  animation: hero-waterfall 850ms cubic-bezier(0.22, 1, 0.36, 1) var(--hero-delay) both;
+}
+
+@keyframes hero-waterfall {
+  from { opacity: 0; transform: translateY(-22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal {
     opacity: 1;
@@ -118,5 +142,10 @@ textarea:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  /* Keep the requested sequence, with only a gentle fade when motion is reduced. */
+  main[data-ready="true"] [data-hero-step] {
+    animation-name: hero-fade;
+    animation-duration: 400ms !important;
   }
 }

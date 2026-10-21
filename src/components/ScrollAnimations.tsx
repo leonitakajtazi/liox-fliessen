@@ -27,11 +27,11 @@ export function ScrollAnimations({ route }: { route: string }) {
     const scan = () => {
       const blocks = Array.from(root.querySelectorAll(
         '[data-reveal-sequence] > *, section .grid > [class*="border"], section form, section details'
-      ));
+      )).filter((element) => !element.closest('[data-hero-sequence]'));
       const outerBlocks = blocks.filter((element) => !blocks.some((other) => other !== element && other.contains(element)));
       const candidates = Array.from(root.querySelectorAll(
         'section h1, section h2, section h3, section p, section li, section img, section .grid > div, section [class*="tracking-widest"]'
-      )).filter((element) => !element.closest('.absolute') &&
+      )).filter((element) => !element.closest('[data-hero-sequence]') && !element.closest('.absolute') &&
         !outerBlocks.some((block) => block.contains(element)));
       const targets = [...outerBlocks, ...candidates.filter((element) => !candidates.some((other) =>
         other !== element && element.contains(other)))];
