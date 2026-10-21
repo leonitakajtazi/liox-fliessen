@@ -188,7 +188,7 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Hierbei werden die Fliesen an Außenkanten im 45-Grad-Winkel geschliffen und stoßen direkt aneinander. Dadurch entfallen optisch auffällige Kunststoff- oder Metallschienen.',
       },
     ],
-    image: '/src/assets/images/service_bathroom_1792594034710.jpg',
+      image: '/images/2.jpg',
     imageAlt: 'Modernes Bad mit großformatigen Natursteinoptik-Fliesen und begehbarer Dusche',
   },
   {
@@ -255,7 +255,7 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Das Treppenhaus und die Zugangswege müssen für die Plattenabmessungen ausreichend dimensioniert sein. Dies klären wir vorab bei der Vor-Ort-Besichtigung.',
       },
     ],
-    image: '/src/assets/images/service_large_format_1792594035315.jpg',
+    image: '/images/3.jpg',
     imageAlt: 'Großformatige Bodenfliesen in einem offenen, modernen Wohnbereich',
   },
   {
@@ -322,7 +322,7 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Durch eine vorgelagerte Entwässerungsrinne vor der Terrassentür und das passende Verlegeniveau kann die vorgeschriebene Anschlusshöhe von 15 cm fachgerecht auf null reduziert werden.',
       },
     ],
-    image: '/src/assets/images/service_terrace_1792594036488.jpg',
+    image: '/images/4.jpg',
     imageAlt: 'Moderne Gartenterrasse mit großformatigen witterungsbeständigen Terrassenplatten',
   },
 ];
