@@ -186,16 +186,20 @@ async function startServer() {
     // Serve production build files
     const distPath = path.resolve(__dirname, 'dist');
     app.use(express.static(distPath, {
+      index: false,
       setHeaders(res, filePath) {
         if (filePath.includes(`${path.sep}assets${path.sep}`)) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         }
       },
     }));
-    app.get('*', (_req: Request, res: Response) => {
+    app.get('*', (req: Request, res: Response) => {
       const indexPath = path.join(distPath, 'index.html');
       if (fs.existsSync(indexPath)) {
-        res.sendFile(indexPath);
+        const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
+        const html = fs.readFileSync(indexPath, 'utf8')
+          .replaceAll('content="/images/logo1.png"', `content="${origin}/images/logo1.png"`);
+        res.type('html').send(html);
       } else {
         res.status(404).send('Not found');
       }

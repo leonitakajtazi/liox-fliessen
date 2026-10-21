@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), tailwindcss(), {
       name: 'site-seo',
+      transformIndexHtml(html) {
+        return html.replaceAll('__SITE_ORIGIN__', origin);
+      },
       closeBundle() {
         fs.writeFileSync('dist/robots.txt', robots(origin));
         fs.writeFileSync('dist/sitemap.xml', sitemap(origin));

@@ -15,6 +15,9 @@ export function SeoMeta({ title, description, canonicalPath, type = 'website' }:
   useEffect(() => {
     const siteOrigin = import.meta.env.VITE_SITE_URL || window.location.origin;
     const canonicalUrl = new URL(effectivePath, siteOrigin).href;
+    const socialImage = new URL('/images/logo1.png', siteOrigin).href;
+    document.querySelector('meta[property="og:image"]')?.setAttribute('content', socialImage);
+    document.querySelector('meta[name="twitter:image"]')?.setAttribute('content', socialImage);
     // 1. Update Title
     document.title = title;
 
