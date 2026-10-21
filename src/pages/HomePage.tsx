@@ -124,19 +124,16 @@ export function HomePage() {
       {/* 2. Introduction Section                              */}
       {/* ---------------------------------------------------- */}
       <section className="py-20 lg:py-28 bg-[#ece7e1] border-b border-[#a09282]/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-reveal-sequence className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-3">
             Über Liox Fliessen
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif text-[#2f2e2e] mb-8 leading-snug [text-wrap:balance]">
-            Handwerkliches Können trifft auf moderne Verlegetechnologie.
+            Präzises Handwerk. Dauerhafte Qualität.
           </h2>
-          <div className="space-y-6 text-base sm:text-lg text-[#2f2e2e]/80 leading-relaxed text-left sm:text-center">
+          <div className="max-w-2xl mx-auto text-base sm:text-lg text-[#2f2e2e]/80 leading-relaxed text-center">
             <p>
-              Fliesenverlegung ist ein anspruchsvolles Gewerk, bei dem es auf jeden Millimeter ankommt. Unebenheiten im Estrich, unsaubere Fliesenschnitte oder nachlässige Bauwerksabdichtungen rächen sich oft erst nach Monaten.
-            </p>
-            <p>
-              Bei <strong className="font-semibold text-[#2f2e2e]">Liox Fliessen</strong> legen wir das Fundament für langlebige Ergebnisse: sorgfältige Vorab-Prüfung der Untergründe, exaktes Einmessen der Verlegeachsen zur Vermeidung störender Randschnitte und moderne Nivelliertechnik für absolut plane Flächen. Ob privates Wohndomizil, Neubau oder gewerbliche Einheit in {BUSINESS_CONFIG.city} – wir behandeln jede Baustelle mit Respekt und handwerklicher Sorgfalt.
+              <strong className="font-semibold text-[#2f2e2e]">Liox Fliessen</strong> steht für sorgfältige Vorbereitung, exakte Verlegung und saubere Ergebnisse. Mit moderner Technik und Liebe zum Detail schaffen wir langlebige Flächen für Ihr Zuhause und Gewerbe.
             </p>
           </div>
         </div>
