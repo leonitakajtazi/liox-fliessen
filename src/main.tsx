@@ -1,5 +1,6 @@
 import {createRoot} from 'react-dom/client';
-import App from './App.tsx';
+import { ComingSoonPage } from './pages/ComingSoonPage';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(<App />);
+// Restore the App import and render <App /> here when the website is ready.
+createRoot(document.getElementById('root')!).render(<ComingSoonPage />);
