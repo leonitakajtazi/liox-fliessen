@@ -17,6 +17,7 @@ export function ComingSoonPage() {
           Unsere Website ist bald für Sie da.
         </p>
         <p className="mt-2 text-sm leading-relaxed">Wir freuen uns auf Ihren Besuch.</p>
+        <p className="mt-12 text-xs text-[#2f2e2e]/70">created by Ernis Pllana</p>
       </div>
     </main>
   );
