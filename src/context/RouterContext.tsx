@@ -57,18 +57,18 @@ export function RouterProvider({ children }: { children: ReactNode }) {
       return;
     }
 
-    // Normalizing target path, keeping an optional #anchor
-    const [pathPart, hash] = to.split('#');
-    const target = pathPart || currentPath;
+    // Match routes by pathname while preserving query parameters in the URL.
+    const destination = new URL(to, window.location.href);
+    const target = destination.pathname;
     const normalized = target.length > 1 && target.endsWith('/') ? target.slice(0, -1) : target;
-    const url = hash ? `${normalized}#${hash}` : normalized;
+    const url = normalized + destination.search + destination.hash;
 
-    if (url !== window.location.pathname + window.location.hash) {
+    if (url !== window.location.pathname + window.location.search + window.location.hash) {
       window.history.pushState({}, '', url);
     }
     if (normalized !== currentPath) setCurrentPath(normalized);
 
-    if (hash) scrollToHash(hash);
+    if (destination.hash) scrollToHash(destination.hash.slice(1));
     else window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -88,7 +88,7 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export function Link({ href, className = '', children, onClick, ...rest }: LinkProps) {
   const { navigate, currentPath } = useRouter();
-  const hrefPath = href.split('#')[0];
+  const hrefPath = new URL(href, window.location.href).pathname;
   const normalizedHref = hrefPath.length > 1 && hrefPath.endsWith('/') ? hrefPath.slice(0, -1) : hrefPath;
   const isActive = currentPath === normalizedHref && !href.includes('#');
 

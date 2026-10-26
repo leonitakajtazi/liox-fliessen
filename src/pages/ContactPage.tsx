@@ -1,12 +1,15 @@
 import { PageHero } from '../components/PageHero';
-import contactHero from '../assets/images/service_bathroom_1792594034710.webp';
 import React from 'react';
-import { BUSINESS_CONFIG } from '../config/business';
+import { BUSINESS_CONFIG, SERVICES } from '../config/business';
 import { SeoMeta } from '../components/SeoMeta';
 import { ContactForm } from '../components/ContactForm';
 import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Shield } from 'lucide-react';
 
 export function ContactPage() {
+  const requestedService = new URLSearchParams(window.location.search).get('service');
+  const defaultService = SERVICES.some((service) => service.id === requestedService)
+    ? requestedService!
+    : undefined;
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
@@ -15,8 +18,8 @@ export function ContactPage() {
       />
 
       <PageHero
-        image={contactHero}
-        imageAlt="Modernes Badezimmer mit warmen Natursteinfliesen"
+        image="/images/projects/baeder-03.webp"
+        imageAlt="Badezimmer mit grauen Fliesen und Glasdusche"
         eyebrow="Kontakt & Beratung"
         title="Ihr Projekt beginnt mit einem Gespräch."
         description="Erzählen Sie uns von Ihrer Idee. Wir beraten Sie persönlich und unverbindlich."
@@ -117,7 +120,7 @@ export function ContactPage() {
 
             {/* Right: Full Contact Form */}
             <div className="lg:col-span-7">
-              <ContactForm />
+              <ContactForm key={defaultService || 'sonstiges'} defaultService={defaultService} />
             </div>
           </div>
         </div>

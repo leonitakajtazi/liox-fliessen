@@ -15,8 +15,8 @@ export function AboutPage() {
       />
 
       <PageHero
-        image="/images/outside2.webp"
-        imageAlt="Großformatige Terrassenfliesen an einem modernen Haus mit Garten"
+        image="/images/projects/terrassen-02.webp"
+        imageAlt="Geflieste Terrasse mit Übergang zum Garten"
         eyebrow="Über Liox Fliesen"
         title="Handwerk mit Sorgfalt und Charakter."
         description="Wir verbinden präzise Arbeit mit einem Blick für Räume, Materialien und die Menschen dahinter."
@@ -29,8 +29,8 @@ export function AboutPage() {
             <div className="lg:col-span-6">
               <div className="aspect-[4/3] bg-[#2f2e2e] overflow-hidden">
                 <img
-                  src="/images/outside.webp"
-                  alt="Präzise verlegte Terrassenplatten vor einem modernen Wohnhaus"
+                  src="/images/projects/balkone-01.webp"
+                  alt="Anthrazitfarbene Balkonfliesen entlang der Hausfassade"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   referrerPolicy="no-referrer"

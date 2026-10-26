@@ -1,26 +1,14 @@
 import { FaqItem } from '../components/FaqItem';
-import materialImage from '../assets/images/service_large_format_1792594035315.webp';
-import bundledImage0 from '../assets/images/hero_liox_tiles_1792594033003.webp';
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Link } from '../context/RouterContext';
-import { BUSINESS_CONFIG, SERVICES, WORK_PROCESS, GENERAL_FAQS, PROJECTS } from '../config/business';
+import { BUSINESS_CONFIG, SERVICES, WORK_PROCESS, GENERAL_FAQS } from '../config/business';
 import { SeoMeta } from '../components/SeoMeta';
 import { ContactForm } from '../components/ContactForm';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
+import { ProjectGallery } from '../components/ProjectGallery';
 import { ArrowRight, Check, Shield, Layers, Compass, Ruler, Sparkles, Phone, HelpCircle, MapPin } from 'lucide-react';
 
 export function HomePage() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.defaultMuted = true;
-    video.muted = true;
-    video.play().catch(() => {});
-  }, []);
-
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
@@ -29,24 +17,12 @@ export function HomePage() {
       />
 
       {/* ---------------------------------------------------- */}
-      {/* 1. Hero Section with Looping Background Video (Muted)*/}
+      {/* 1. Hero Section with Real Project Photograph*/}
       {/* ---------------------------------------------------- */}
       <section className="hero-surface relative overflow-hidden min-h-[520px] sm:min-h-[600px] lg:min-h-[720px] flex items-center bg-[#2f2e2e]">
-        {/* Background Video Layer - Optimized for Mobile & Desktop */}
+        {/* Project Photograph */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            ref={videoRef}
-            src="/assets/aistudio/gemini_generated_video_e6a6855f_7090bfd6.mp4"
-            autoPlay
-            preload="metadata"
-            loop
-            muted
-            playsInline
-            poster={bundledImage0}
-            className="w-full h-full object-cover object-[62%_center] sm:object-center scale-100"
-            aria-hidden="true"
-          >
-          </video>
+          <img src="/images/projects/baeder-04.webp" alt="Badezimmer unter der Dachschräge mit Glasdusche und Dachfenster" fetchPriority="high" className="w-full h-full object-cover object-center" />
 
           {/* Balanced cinematic scrim: soft on mobile, directional on desktop */}
           <div className="absolute inset-0 bg-[#2f2e2e]/30 pointer-events-none" />
@@ -219,67 +195,8 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------- */}
-      {/* 4. Featured Work & Craftsmanship Demonstration       */}
-      {/* ---------------------------------------------------- */}
-      <section className="py-20 lg:py-28 bg-[#ece7e1] border-b border-[#a09282]/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div>
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-2">
-                Referenzen & Ausführungsbeispiele
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-serif text-[#2f2e2e]">
-                Einblick in unsere Verlegequalität
-              </h2>
-            </div>
-            <div className="text-xs text-[#2f2e2e]/75 max-w-sm">
-              Demonstrations-Galerie architektonischer Verlegungen. Gerne zeigen wir Ihnen im persönlichen Gespräch weitere Details.
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {PROJECTS.map((proj) => (
-              <div
-                key={proj.id}
-                className="bg-white border border-[#a09282]/30 overflow-hidden flex flex-col justify-between"
-              >
-                <div>
-                  <div className="aspect-[4/3] bg-[#2f2e2e] relative overflow-hidden">
-                    <img
-                      src={proj.image}
-                      alt={proj.imageAlt}
-                      className="w-full h-full object-cover card-image-zoom"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute top-3 left-3 bg-[#2f2e2e]/90 text-[#ece7e1] text-xs font-semibold uppercase tracking-wider px-2.5 py-1">
-                      {proj.categoryLabel}
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-serif text-[#2f2e2e] mb-2">
-                      {proj.title}
-                    </h3>
-                    <p className="text-xs text-[#2f2e2e]/70 leading-relaxed mb-4">
-                      {proj.description}
-                    </p>
-
-                    <div className="pt-3 border-t border-[#a09282]/20 space-y-1.5 text-xs text-[#2f2e2e]/80">
-                      <div>
-                        <strong className="text-[#2f2e2e]">Material:</strong> {proj.materialsNote}
-                      </div>
-                      <div>
-                        <strong className="text-[#2f2e2e]">Umfang:</strong> {proj.scopeNote}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
+      <ProjectGallery />
+      <section className="py-16 border-b border-[#a09282]/20"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Interactive Before/After Demonstration */}
           <div className="bg-white border border-[#a09282]/30 p-6 sm:p-10">
             <div className="max-w-2xl mb-6">
@@ -294,17 +211,30 @@ export function HomePage() {
               </p>
             </div>
 
-            <BeforeAfterSlider
-              beforeImage='/images/8.webp'
-              afterImage='/images/9.webp'
-              beforeAlt="Badezimmer vor der Sanierung"
-              afterAlt="Badezimmer nach der Sanierung mit exklusiven großformatigen Kalksteinfliesen von Liox Fliessen"
-              beforeLabel="Vorher"
-              afterLabel="Nachher"
-            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-serif mb-4">Badsanierung</h4>
+                <BeforeAfterSlider
+                  beforeImage="/images/projects/bad-vorher.webp"
+                  afterImage="/images/projects/bad-nachher.webp"
+                  beforeAlt="Badezimmer während der Vorbereitung und Sanierung"
+                  afterAlt="Fertiges Badezimmer mit Badewanne und Holzoptik-Fliesen"
+                  aspectRatio="3/4"
+                />
+              </div>
+              <div>
+                <h4 className="text-xl font-serif mb-4">Balkonsanierung</h4>
+                <BeforeAfterSlider
+                  beforeImage="/images/projects/balkon-vorher.webp"
+                  afterImage="/images/projects/balkon-nachher-02.webp"
+                  beforeAlt="Balkon beim Entfernen des alten Fliesenbelags"
+                  afterAlt="Balkon nach der Sanierung mit neuen hellen Fliesen"
+                  aspectRatio="3/4"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+      </div></section>
 
       {/* ---------------------------------------------------- */}
       {/* 5. Process: 4 Clear Steps                            */}
@@ -355,8 +285,8 @@ export function HomePage() {
             <div className="lg:col-span-6">
               <div className="aspect-[4/3] bg-[#2f2e2e] overflow-hidden">
                 <img
-                  src={materialImage}
-                  alt="Heller Wohnbereich mit großformatigen Natursteinfliesen und feinen Fugen"
+                  src="/images/projects/innenraeume-02.webp"
+                  alt="Grauer Fliesenboden im Dachgeschoss mit präzisem Fugenbild"
                   className="w-full h-full object-cover"
                   loading="lazy"
                   referrerPolicy="no-referrer"
