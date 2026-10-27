@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import servicesHero from '../assets/images/hero_liox_tiles_1792594033003.webp';
 import { SERVICES, BUSINESS_CONFIG } from '../config/business';
 import { Link } from '../context/RouterContext';
 import { scrollToSection } from '../utils/scrollToSection';
@@ -44,7 +43,7 @@ export function ServicesOverviewPage() {
 
       {/* Header Banner */}
       <section className="hero-surface relative isolate overflow-hidden bg-[#2f2e2e] text-[#ece7e1]">
-        <img src={servicesHero} alt="Helles Badezimmer mit Natursteinfliesen und freistehender Badewanne"
+        <img src="/images/projects/baeder-01.webp" alt="Badezimmer mit Badewanne, Holzoptik-Fliesen und Glasdusche"
           fetchPriority="high" width={1376} height={768}
           className="absolute inset-0 -z-20 h-full w-full object-cover object-[65%_center] sm:object-center" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#2f2e2e]/90 via-[#2f2e2e]/70 to-[#2f2e2e]/25" />

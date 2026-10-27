@@ -121,8 +121,8 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Eine Fliese-auf-Fliese-Verlegung ist grundsätzlich möglich, wenn der Altbelag tragfähig, hohlraumfrei und fest haftend ist. Dies wird im Vor-Ort-Termin detailliert geprüft und mit Spezialhaftgrund vorbereitet.',
       },
     ],
-    image: '/images/1.webp',
-    imageAlt: 'Präzise Fliesenverlegung im Detail mit exakter Fugenkante',
+    image: '/images/projects/innenraeume-02.webp',
+    imageAlt: 'Grauer Fliesenboden im Wohnraum',
   },
   {
     id: 'badfliesen',
@@ -188,8 +188,8 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Hierbei werden die Fliesen an Außenkanten im 45-Grad-Winkel geschliffen und stoßen direkt aneinander. Dadurch entfallen optisch auffällige Kunststoff- oder Metallschienen.',
       },
     ],
-      image: '/images/2.webp',
-    imageAlt: 'Modernes Bad mit großformatigen Natursteinoptik-Fliesen und begehbarer Dusche',
+      image: '/images/projects/baeder-01.webp',
+    imageAlt: 'Badezimmer mit Badewanne, Holzoptik-Fliesen und Glasdusche',
   },
   {
     id: 'grossformatfliesen',
@@ -255,7 +255,7 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Das Treppenhaus und die Zugangswege müssen für die Plattenabmessungen ausreichend dimensioniert sein. Dies klären wir vorab bei der Vor-Ort-Besichtigung.',
       },
     ],
-    image: '/images/3.webp',
+    image: '/images/projects/innenraeume-03.webp',
     imageAlt: 'Großformatige Bodenfliesen in einem offenen, modernen Wohnbereich',
   },
   {
@@ -322,72 +322,8 @@ export const SERVICES: ServiceItem[] = [
         answer: 'Durch eine vorgelagerte Entwässerungsrinne vor der Terrassentür und das passende Verlegeniveau kann die vorgeschriebene Anschlusshöhe von 15 cm fachgerecht auf null reduziert werden.',
       },
     ],
-    image: '/images/4.webp',
+    image: '/images/projects/terrassen-02.webp',
     imageAlt: 'Moderne Gartenterrasse mit großformatigen witterungsbeständigen Terrassenplatten',
-  },
-];
-
-export interface ProjectItem {
-  id: string;
-  slug: string;
-  title: string;
-  category: 'bad' | 'grossformat' | 'terrasse' | 'wohnbereich';
-  categoryLabel: string;
-  locationNote: string;
-  materialsNote: string;
-  scopeNote: string;
-  description: string;
-  result: string;
-  image: string;
-  imageAlt: string;
-  isVerifiedDemo: boolean;
-}
-
-export const PROJECTS: ProjectItem[] = [
-  {
-    id: 'bad-penthouse-natursteinoptik',
-    slug: 'bad-penthouse-natursteinoptik',
-    title: 'Exklusives Masterbad in Naturstein-Optik',
-    category: 'bad',
-    categoryLabel: 'Badsanierung',
-    locationNote: '[STANDORT NACH FREIGABE / REGION]',
-    materialsNote: 'Feinsteinzeug 120 x 120 cm, Sandstein-Struktur, Gehrungskanten',
-    scopeNote: 'Bodengleiche Walk-in-Dusche, Doppelwaschtisch-Vormauerung, Wandnische',
-    description: 'Vollständige Neugestaltung eines Masterbads mit warmen, sandsteinfarbenen Keramikflächen. Die Kanten der eingelassenen Dusch-Nische wurden auf 45-Grad-Gehrung präzise geschliffen, um ein ruhiges Gesamtbild ohne Metallprofile zu erreichen.',
-    result: 'Ein fugenarmer Raum mit monolithischem Charakter, vollständiger Verbundabdichtung nach DIN 18534 und barrierefreiem Duschzugang.',
-    image: '/images/5.webp',
-    imageAlt: 'Fertiggestelltes Masterbad mit Gehrungskanten und bodengleicher Dusche',
-    isVerifiedDemo: true,
-  },
-  {
-    id: 'wohnbereich-xxl-boden',
-    slug: 'wohnbereich-xxl-boden',
-    title: 'Offener Wohn- & Essbereich mit XXL-Keramik',
-    category: 'grossformat',
-    categoryLabel: 'Großformat',
-    locationNote: '[STANDORT NACH FREIGABE / REGION]',
-    materialsNote: 'Großformatplatten 120 x 240 cm, mattes Kalkstein-Finish',
-    scopeNote: 'Ebenheitsausgleich, Verlegung über 85 m² mit 2 mm Haarfuge',
-    description: 'Verlegung großformatiger Feinsteinzeugplatten in einem lichtdurchfluteten Wohnbereich. Durch sorgfältige Vorab-Nivellierung des Heizestrichs entstand ein stufenloser Belag mit perfektem Fugenbild zur Fensterfront.',
-    result: 'Ein elegantes, großzügiges Raumgefühl mit gleichmäßiger Wärmeleitung der Fußbodenheizung und minimalem Pflegeaufwand.',
-    image: '/images/6.webp',
-    imageAlt: 'Lichtdurchfluteter Wohnbereich mit durchgehender Großformatverlegung',
-    isVerifiedDemo: true,
-  },
-  {
-    id: 'terrasse-schwellenloser-austritt',
-    slug: 'terrasse-schwellenloser-austritt',
-    title: 'Gartenterrasse mit schwellenlosem Übergang',
-    category: 'terrasse',
-    categoryLabel: 'Terrassenbelag',
-    locationNote: '[STANDORT NACH FREIGABE / REGION]',
-    materialsNote: '20 mm Outdoor-Feinsteinzeug 60 x 120 cm auf Stelzlagern',
-    scopeNote: 'Schwellenlose Rinnenentwässerung, Randabschluss, Stufenanlage',
-    description: 'Gestaltung einer großflächigen Außenterrasse mit schwellenlosem Übergang vom Wohnraum in den Garten. Das Stelzlagersystem ermöglicht einen raschen Wasserabfluss und bleibt revisionierbar.',
-    result: 'Frost- und verwitterungsbeständiger Außenbelag mit rutschhemmender Oberfläche und makelloser Fluchtlinie.',
-    image: '/images/7.webp',
-    imageAlt: 'Schwellenlose Terrasse mit hochwertigen Outdoor-Keramikplatten',
-    isVerifiedDemo: true,
   },
 ];
 

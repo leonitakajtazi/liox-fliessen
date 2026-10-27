@@ -7,6 +7,7 @@ interface BeforeAfterSliderProps {
   afterAlt?: string;
   beforeLabel?: string;
   afterLabel?: string;
+  aspectRatio?: string;
 }
 
 export function BeforeAfterSlider({
@@ -16,6 +17,7 @@ export function BeforeAfterSlider({
   afterAlt = 'Nach der Sanierung: Meisterhaft verlegte Großformatfliesen und moderne Walk-in-Dusche',
   beforeLabel = 'Vorher',
   afterLabel = 'Nachher',
+  aspectRatio = '16/9',
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -71,7 +73,8 @@ export function BeforeAfterSlider({
       ref={containerRef}
       onMouseDown={(e) => handleStart(e.clientX)}
       onTouchStart={(e) => handleStart(e.touches[0].clientX)}
-      className="relative select-none overflow-hidden aspect-[16/9] w-full rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 bg-[#2f2e2e] cursor-ew-resize touch-none"
+      style={{ aspectRatio }}
+      className="relative select-none overflow-hidden w-full rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 bg-[#2f2e2e] cursor-ew-resize touch-none"
     >
       {/* 1. AFTER Image (Base Layer, Full Size) */}
       <img
