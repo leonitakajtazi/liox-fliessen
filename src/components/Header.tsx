@@ -61,7 +61,7 @@ export function Header() {
             <Link
               href="/"
               className="flex items-center shrink-0 transition-opacity duration-300 hover:opacity-90"
-              aria-label="Liox Fliessen Startseite"
+              aria-label="Liox Fliesen Startseite"
             >
               <span className="flex w-24 h-[76px] items-center justify-center">
                 <img

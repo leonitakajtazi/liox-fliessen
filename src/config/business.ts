@@ -1,5 +1,5 @@
 /**
- * Zentralisierte Unternehmensdaten für Liox Fliessen.
+ * Zentralisierte Unternehmensdaten für Liox Fliesen.
  * Platzhalter sind klar gekennzeichnet und können vor dem offiziellen Launch
  * mit den tatsächlichen Firmendaten des Kunden überschrieben werden.
  */
@@ -21,7 +21,7 @@ export interface BusinessConfig {
 }
 
 export const BUSINESS_CONFIG: BusinessConfig = {
-  brandName: 'Liox Fliessen',
+  brandName: 'Liox Fliesen',
   industry: 'Professionelle Fliesenverlegung & Handwerk',
   city: 'Alzey',
   serviceArea: 'Alzey und Umgebung',
@@ -63,17 +63,17 @@ export const SERVICES: ServiceItem[] = [
     title: 'Fachgerechte Fliesenverlegung',
     shortTitle: 'Fliesenverlegung',
     kicker: 'Präzision & Langlebigkeit',
-    metaTitle: 'Fliesenverlegung in Alzey – Liox Fliessen',
+    metaTitle: 'Fliesenverlegung in Alzey – Liox Fliesen',
     metaDescription: 'Präzise Fliesenarbeiten für Böden und Wände in Wohn- und Gewerberäumen. Saubere Fugentechnik und plane Verlegung in Alzey und Umgebung.',
     heroHeadline: 'Präzise Fliesenarbeiten für anspruchsvolle Innenräume.',
     heroSubtitle: 'Von klassischen Formaten bis zu individuellen Verlegemustern: Wir schaffen ebene Oberflächen mit exaktem Fugenbild und dauerhafter Belastbarkeit.',
-    description: 'Fliesen sind weit mehr als ein robuster Belag. Sie prägen die Raumwirkung, die Haptik und die Wertigkeit eines Gebäudes. Wir verlegen Wand- und Bodenfliesen im gesamten Wohn- und Objektbereich mit modernsten Nivelliersystemen und exakt abgestimmten Klebemörteln.',
+    description: 'Neue Fliesen geben Ihren Räumen einen eigenen Charakter. Wir verlegen Wand- und Bodenfliesen in Wohn- und Geschäftsräumen und stimmen Format, Verlegemuster und Fugen auf Ihre Vorstellungen ab.',
     benefits: [
-      'Exaktes Fugenbild mit millimetergenauer Ausrichtung',
-      'Verzugsfreie Ebenheit durch professionelle Nivelliersysteme',
-      'Fachgerechte Untergrundvorbereitung und Rissüberbrückung',
-      'Saubere Übergänge zu Parkett, Estrich und Türelementen',
-      'Zuverlässige Termineinhaltung und saubere Baustellenführung',
+      "Persönliche Beratung zu Formaten und Verlegemustern",
+      "Sorgfältige Vorbereitung des Untergrunds",
+      "Gleichmäßiges Fugenbild und saubere Abschlüsse",
+      "Abgestimmte Übergänge zu angrenzenden Bodenbelägen",
+      "Fliesenarbeiten im Neubau und bei Renovierungen"
     ],
     scope: [
       'Wohnbereichs-, Küchen- und Flurbeläge',
@@ -129,18 +129,18 @@ export const SERVICES: ServiceItem[] = [
     slug: 'badfliesen',
     title: 'Badfliesen & Badsanierung',
     shortTitle: 'Badfliesen',
-    kicker: 'Wellness & Feuchteschutz',
-    metaTitle: 'Badfliesen in Alzey – Liox Fliessen',
+    kicker: 'Wohlfühlen & Alltag',
+    metaTitle: 'Badfliesen in Alzey – Liox Fliesen',
     metaDescription: 'Moderne Badfliesen, bodengleiche Duschen und normgerechte Verbundabdichtung nach DIN 18534 in Alzey und Umgebung.',
     heroHeadline: 'Elegante Bäder mit maximalem Feuchtigkeitsschutz.',
     heroSubtitle: 'Vom privaten Wellnessbad bis zum barrierefreien Duschbereich: Wir verbinden anspruchsvolle Ästhetik mit normgerechter Verbundabdichtung.',
-    description: 'Im Badezimmer treffen Wasser, Dampf und höchste Gestaltungsansprüche aufeinander. Neben fugenarmen Großkeramiken und eleganten Nischenausbildungen hat der bauphysikalische Feuchtigkeitsschutz höchste Priorität. Wir arbeiten strikt nach den anerkannten Regeln der Technik.',
+    description: 'Ihr Bad soll schön aussehen und im Alltag zu Ihnen passen. Wir übernehmen die Fliesenarbeiten bei Neubau und Sanierung – von Wand und Boden bis zu Duschbereichen, Nischen und passenden Abschlüssen.',
     benefits: [
-      'Zertifizierte Verbundabdichtung nach DIN 18534 (Wassereinwirkungsklassen W0-I bis W3-I)',
-      'Bodengleiche, barrierefreie Walk-in-Duschbereiche mit Gefälleausbildung',
-      'Akkurat auf Gehrung geschliffene Fliesenkanten (Jolly-Kante) ohne sichtbare Schienen',
-      'Eingebaute und beleuchtete Ablagenischen für Duschutensilien',
-      'Pilzhemmende und wasserabweisende Sanitärverfugung',
+      "Fliesengestaltung für neue und bestehende Badezimmer",
+      "Duschbereiche passend zu den baulichen Möglichkeiten",
+      "Abgestimmte Abdichtung und sorgfältige Anschlüsse",
+      "Individuelle Details an Nischen und Kanten",
+      "Materialauswahl mit Blick auf Nutzung und Pflege"
     ],
     scope: [
       'Komplettverfliesung von Neubau- und Sanierungsbädern',
@@ -196,18 +196,18 @@ export const SERVICES: ServiceItem[] = [
     slug: 'grossformatfliesen',
     title: 'Großformatfliesen & XXL-Keramik',
     shortTitle: 'Großformatfliesen',
-    kicker: 'Monolithisch & Fugenarm',
-    metaTitle: 'Großformatfliesen in Alzey – Liox Fliessen',
+    kicker: 'Großzügig & Klar',
+    metaTitle: 'Großformatfliesen in Alzey – Liox Fliesen',
     metaDescription: 'Spezialisierte Verlegung von XXL-Fliesen (120x120 cm, 120x260 cm und mehr). Nahezu fugenlose Raumkonzepte in Alzey und Umgebung.',
     heroHeadline: 'Beeindruckende Dimensionen. Nahezu fugenlose Ästhetik.',
     heroSubtitle: 'XXL-Fliesen verlangen absolute Genauigkeit, Spezialwerkzeug und geschulte Handgriffe. Wir beherrschen das anspruchsvolle Großformat.',
-    description: 'Großformatfliesen bis zu 120 x 280 cm verwandeln Räume in ruhige, architektonische Kunstwerke. Die Reduzierung von Fugen auf ein absolutes Minimum erzeugt eine außergewöhnlich homogene Optik. Der Transport und die Verlegung dieser Dimensionen dulden keinerlei Toleranzfehler.',
+    description: 'Große Fliesen bringen Ruhe und Weite in den Raum. Wir beraten Sie zur Wirkung und Eignung der Formate und achten bei der Verlegung auf einen passenden Untergrund, saubere Schnitte und ein stimmiges Fugenbild.',
     benefits: [
-      'Ruhige, zusammenhängende Flächenwirkung durch minimale Fugenanteile',
-      'Einsatz von Vakuumsaughebern und Spezial-Führungsschienen für saubere Schnitte',
-      'Vollflächige Verklebung im Buttering-Floating-Verfahren zur Vermeidung von Lufteinschlüssen',
-      'Höchste Pflegeleichtigkeit im Vergleich zu kleinformatigen Fliesenbelägen',
-      'Exklusive Optik für Bäder, repräsentative Wohnräume und Empfangsbereiche',
+      "Ruhige Flächenwirkung mit weniger Fugen",
+      "Beratung zum passenden Format für Ihren Raum",
+      "Sorgfältige Vorbereitung und präzise Verarbeitung",
+      "Abgestimmte Übergänge und Kanten",
+      "Für Bäder, Wohnräume und gewerbliche Flächen"
     ],
     scope: [
       'Wand- und Bodenbeläge ab Formaten 100x100 cm bis 120x280 cm',
@@ -263,18 +263,18 @@ export const SERVICES: ServiceItem[] = [
     slug: 'terrassenfliesen',
     title: 'Terrassen & Außenbereiche',
     shortTitle: 'Terrassenfliesen',
-    kicker: 'Witterungsbeständig & Frostsicher',
-    metaTitle: 'Terrassenfliesen in Alzey – Liox Fliessen',
+    kicker: 'Draußen zu Hause',
+    metaTitle: 'Terrassenfliesen in Alzey – Liox Fliesen',
     metaDescription: 'Frostsichere Keramikplatten und Terrassenfliesen auf Stelzlagern, Splittbett oder Drainagemörtel in Alzey und Umgebung.',
     heroHeadline: 'Dauerhaft wetterfeste Ästhetik im Außenbereich.',
     heroSubtitle: 'Terrassen, Balkone und Eingangsbereiche erfordern höchste Beständigkeit gegen Frost, Nässe und Temperaturwechsel. Wir verlegen mit System.',
-    description: 'Im Außenbereich entscheidet der richtige Schichtenaufbau über die Dauerhaftigkeit. Stauende Nässe und Frostsprengung sind die häufigsten Schadensursachen bei fehlerhafter Ausführung. Ob Verlegung auf verstellbaren Stelzlagern, im drainierenden Splittbett oder auf Drainbeton: Wir wählen das passende System für Ihren Außenbereich.',
+    description: 'Machen Sie Terrasse und Balkon zu einem Platz, an dem Sie gerne Zeit verbringen. Wir besprechen geeignete Beläge und die passende Verlegeart – mit Blick auf Untergrund, Entwässerung und den Übergang zum Haus.',
     benefits: [
-      'Garantierte Frostbeständigkeit durch 2 cm starke Outdoor-Keramik',
-      'Effiziente Entwässerung durch Gefälleausbildung und Drainagesysteme',
-      'Trockenverlegung auf Stelzlagern für barrierefreie Zugänge und Revisionsmöglichkeiten',
-      'Rutschhemmende Oberflächenklassen (R10 bis R11) für Sicherheit bei Nässe',
-      'Farbecht, UV-beständig und resistent gegen Moos- und Algenbildung',
+      "Beratung zu geeigneten Belägen für den Außenbereich",
+      "Verlegeaufbau passend zum vorhandenen Untergrund",
+      "Berücksichtigung von Gefälle und Entwässerung",
+      "Sorgfältige Anschlüsse an Türen und angrenzende Flächen",
+      "Neue Beläge und Sanierung bestehender Außenflächen"
     ],
     scope: [
       'Terrassenflächen und Dachterrassen',
@@ -329,50 +329,50 @@ export const SERVICES: ServiceItem[] = [
 
 export const WORK_PROCESS = [
   {
-    step: '01',
-    title: 'Anfrage & Erstgespräch',
-    description: 'Sie teilen uns Ihre Wünsche, die ungefähre Fläche und den geplanten Zeitrahmen über unser Formular oder telefonisch mit. Wir klären erste bauliche Rahmenbedingungen.',
+    "step": "01",
+    "title": "Anfrage & Erstgespräch",
+    "description": "Sie erzählen uns, was Sie vorhaben. Wir hören zu, klären erste Fragen und besprechen, wie wir Sie unterstützen können."
   },
   {
-    step: '02',
-    title: 'Besichtigung & Planung',
-    description: 'Vor Ort prüfen wir den Untergrund (Ebenheit, Feuchte, Risse), besprechen die ideale Fugenachse, passende Fliesenformate und erforderliche Abdichtungsmaßnahmen.',
+    "step": "02",
+    "title": "Besichtigung & Planung",
+    "description": "Bei Bedarf schauen wir uns die Gegebenheiten vor Ort an. Gemeinsam stimmen wir Gestaltung, Material und die nötigen Vorarbeiten ab."
   },
   {
-    step: '03',
-    title: 'Angebot & Abstimmung',
-    description: 'Sie erhalten ein transparent gegliedertes, verbindliches Angebot ohne versteckte Kostenpositionen. Nach Ihrer Freigabe stimmen wir den Ausführungszeitraum ab.',
+    "step": "03",
+    "title": "Angebot & Abstimmung",
+    "description": "Wir fassen die besprochenen Leistungen in einem nachvollziehbaren Angebot zusammen und stimmen den Zeitrahmen mit Ihnen ab."
   },
   {
-    step: '04',
-    title: 'Fachgerechte Umsetzung',
-    description: 'Pünktlicher Beginn, saubere Baustellenführung mit Staubschutz und handwerkliche Ausführung nach den anerkannten Regeln der Technik bis zur gemeinsamen Abnahme.',
-  },
+    "step": "04",
+    "title": "Umsetzung & Übergabe",
+    "description": "Wir setzen die vereinbarten Arbeiten sorgfältig um. Zum Abschluss sehen wir uns das Ergebnis gemeinsam an und klären Ihre Fragen zur Pflege."
+  }
 ];
 
 export const GENERAL_FAQS = [
   {
-    question: 'Wie läuft eine unverbindliche Anfrage bei Liox Fliessen ab?',
-    answer: 'Über unser Online-Formular oder telefonisch beschreiben Sie Ihr Vorhaben kurz. Innerhalb von ein bis zwei Werktagen melden wir uns bei Ihnen, um Details abzustimmen und bei Bedarf einen kostenfreien Vor-Ort-Termin zu vereinbaren.',
+    "question": "Wie läuft eine Anfrage bei Liox Fliesen ab?",
+    "answer": "Schreiben Sie uns über das Formular, senden Sie eine E-Mail oder rufen Sie an. Wir besprechen Ihr Vorhaben und klären gemeinsam, welche Informationen oder Termine für die weitere Planung sinnvoll sind."
   },
   {
-    question: 'Welche Informationen werden für eine erste Kosteneinschätzung benötigt?',
-    answer: 'Hilfreich sind die ungefähre Quadratmeterzahl, der Raumtyp (z. B. Bad, Küche, Terrasse), das gewünschte Fliesenformat und der Zustand des Untergrunds (z. B. Neubau-Estrich oder Altbestand zum Sanieren).',
+    "question": "Welche Informationen helfen bei einer ersten Einschätzung?",
+    "answer": "Eine kurze Beschreibung, der Projektstandort und die ungefähre Fläche sind ein guter Anfang. Fotos, Skizzen und Wünsche zu den Fliesen helfen zusätzlich. Was noch fehlt, klären wir im Gespräch."
   },
   {
-    question: 'Wer besorgt die Fliesen – Sie oder ich als Kunde?',
-    answer: 'Beides ist möglich. Gerne unterstützen wir Sie bei der Auswahl und beziehen hochwertige Qualitätsfliesen über den qualifizierten Fachhandel. Wenn Sie Ihre Fliesen bereits selbst ausgewählt oder gekauft haben, übernehmen wir die fachgerechte Verlegung.',
+    "question": "Kann ich bereits ausgewählte Fliesen verlegen lassen?",
+    "answer": "Sprechen Sie uns gerne darauf an. Wir klären, ob die ausgewählten Fliesen zum Untergrund und zur geplanten Nutzung passen, und stimmen die weiteren Schritte mit Ihnen ab."
   },
   {
-    question: 'Wie lange im Voraus sollte ein Projekt angefragt werden?',
-    answer: 'Je früher Sie mit uns in Kontakt treten, desto zuverlässiger können wir Ihren Wunschtermin einplanen. Bei Sanierungen empfehlen wir eine Vorlaufzeit von circa vier bis acht Wochen.',
+    "question": "Wann sollte ich mein Projekt anfragen?",
+    "answer": "Melden Sie sich möglichst früh, besonders wenn Sie einen bestimmten Termin im Blick haben. Die mögliche Ausführung hängt vom Umfang, der Vorbereitung und unserer aktuellen Auslastung ab."
   },
   {
-    question: 'Welche Vorkehrungen treffen Sie zum Schutz von Bestandsräumen?',
-    answer: 'Vor Beginn der Arbeiten schützen wir angrenzende Bodenbeläge mit robustem Abdeckvlies, setzen bei staubintensiven Arbeiten Staubschutztüren ein und hinterlassen die Baustelle am Tagesende stets aufgeräumt.',
+    "question": "Wie werden bestehende Räume während der Arbeiten geschützt?",
+    "answer": "Wir besprechen vor Beginn, welche Bereiche geschützt werden müssen und wie die Arbeiten Ihren Alltag möglichst wenig beeinträchtigen. Die Schutzmaßnahmen stimmen wir auf die anstehenden Arbeiten ab."
   },
   {
-    question: 'In welchem Umkreis um Alzey bieten Sie Ihre Leistungen an?',
-    answer: 'Wir arbeiten im gesamten Einzugsgebiet von Alzey und Umgebung. Bei größeren Projekten oder speziellen Großformatverlegungen übernehmen wir auf Anfrage auch Aufträge darüber hinaus.',
-  },
+    "question": "Wo ist Liox Fliesen für mich im Einsatz?",
+    "answer": "Unser Standort ist Alzey, unser Einsatzgebiet die Stadt und ihre Umgebung. Nennen Sie uns bei Ihrer Anfrage einfach den Projektort. Dann klären wir, ob wir Ihr Vorhaben übernehmen können."
+  }
 ];

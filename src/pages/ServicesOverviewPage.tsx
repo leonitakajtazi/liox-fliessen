@@ -36,7 +36,7 @@ export function ServicesOverviewPage() {
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
-        title={`Fliesenarbeiten & Leistungen in ${BUSINESS_CONFIG.city} – Liox Fliessen`}
+        title={`Fliesenarbeiten & Leistungen in ${BUSINESS_CONFIG.city} – Liox Fliesen`}
         description={`Alle Leistungen auf einen Blick: Fachgerechte Fliesenverlegung, moderne Badfliesen, Großformatfliesen und Terrassenplatten in ${BUSINESS_CONFIG.city} und Umgebung.`}
         canonicalPath="/leistungen"
       />
@@ -50,13 +50,13 @@ export function ServicesOverviewPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
           <div data-reveal-sequence className="max-w-2xl">
             <div className="text-xs font-semibold uppercase tracking-widest text-[#d4c4b1] mb-5">
-              Leistungsspektrum & Handwerksstandards
+              Unsere Leistungen
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-serif text-[#ece7e1] mb-6 leading-tight [text-wrap:balance]">
-              Präzise Handwerksleistungen für private und gewerbliche Bauherren.
+              Fliesen, die zu Ihrem Leben passen.
             </h1>
             <p className="text-base sm:text-lg text-[#ece7e1]/90 leading-relaxed max-w-xl">
-              Vom millimetergenau eingemessenen Wohnzimmerboden bis zur anspruchsvollen Badsanierung nach DIN 18534 – alle Leistungsbereiche, Abläufe und Materialien auf einer Seite.
+              Ob Bad, Wohnraum oder Terrasse: Wir unterstützen Sie bei der Gestaltung und übernehmen die Fliesenarbeiten – abgestimmt auf Ihre Wünsche und die Anforderungen vor Ort.
             </p>
             <a href="#leistungsuebersicht" onClick={(e) => jumpTo(e, 'leistungsuebersicht')}
               className="inline-flex items-center gap-3 mt-8 pb-2 border-b border-[#d4c4b1]/60 text-sm text-[#ece7e1] hover:text-[#d4c4b1] group">
@@ -185,10 +185,10 @@ export function ServicesOverviewPage() {
               Fachwissen & Beratung
             </div>
             <h2 className="text-3xl font-serif text-[#ece7e1] mb-4">
-              Wichtige Planungsgrundlagen für Ihr Bauvorhaben
+              Die richtige Grundlage für Ihr Projekt.
             </h2>
             <p className="text-sm text-[#ece7e1]/75 leading-relaxed">
-              Vor dem ersten Spachtelzug müssen Untergrundbeschaffenheit, Raumfeuchte, Dehnungsfugen und Lastabtragungen exakt geprüft werden – bei jeder unserer Leistungen.
+              Gute Fliesenarbeiten beginnen vor der ersten verlegten Fliese. Wir schauen uns die Gegebenheiten an und stimmen Vorbereitung, Material und Ausführung darauf ab.
             </p>
           </div>
 
@@ -199,17 +199,17 @@ export function ServicesOverviewPage() {
                 Untergrund & Nivellierung
               </h3>
               <p className="text-xs text-[#ece7e1]/70 leading-relaxed">
-                Große Fliesen verzeihen keine Estrichunebenheiten. Wir kontrollieren die Ebenheit nach DIN 18202 und gleichen Höhenunterschiede mit faserverstärkten Spachtelmassen aus.
+                Ein tragfähiger, ebener Untergrund ist die Basis für die Verlegung. Wir prüfen den vorhandenen Aufbau und besprechen, welche Vorbereitung erforderlich ist.
               </p>
             </div>
 
             <div className="border border-[#a09282]/40 p-8">
               <Shield className="w-8 h-8 text-[#a09282] mb-4" />
               <h3 className="text-lg font-semibold text-[#ece7e1] mb-3">
-                Verbundabdichtung DIN 18534
+                Abdichtung im Bad
               </h3>
               <p className="text-xs text-[#ece7e1]/70 leading-relaxed">
-                In Duschen und Bädern ist ein mehrlagiges Dichtsystem unerlässlich. Dichtmanschetten um Rohrdurchführungen und Eckdichtbänder garantieren absoluten Feuchteschutz der Bausubstanz.
+                Gerade in Dusche und Bad kommt es auf die Bereiche unter den Fliesen an. Abdichtung, Anschlüsse und Übergänge werden passend zur Nutzung geplant und ausgeführt.
               </p>
             </div>
 
@@ -219,7 +219,7 @@ export function ServicesOverviewPage() {
                 Buttering-Floating-Verfahren
               </h3>
               <p className="text-xs text-[#ece7e1]/70 leading-relaxed">
-                Der Fliesenkleber wird sowohl auf den Untergrund als auch auf die Fliesenrückseite aufgetragen. Dies verhindert Hohlräume und schützt vor Plattenbruch bei Punktlasten.
+                Bei diesem Verfahren wird Kleber auf den Untergrund und die Fliesenrückseite aufgetragen. Je nach Format und Einsatzbereich unterstützt das eine gleichmäßige Einbettung.
               </p>
             </div>
           </div>

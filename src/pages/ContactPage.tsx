@@ -13,7 +13,7 @@ export function ContactPage() {
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
-        title={`Kontakt & Angebot anfordern – Liox Fliessen in ${BUSINESS_CONFIG.city}`}
+        title={`Kontakt & Angebot anfordern – Liox Fliesen in ${BUSINESS_CONFIG.city}`}
         description={`Fordern Sie Ihr unverbindliches Angebot für Fliesenarbeiten, Badsanierung oder Terrassenverlegung in ${BUSINESS_CONFIG.city} und Umgebung an.`}
       />
 
@@ -21,8 +21,8 @@ export function ContactPage() {
         image="/images/projects/baeder-03.webp"
         imageAlt="Badezimmer mit grauen Fliesen und Glasdusche"
         eyebrow="Kontakt & Beratung"
-        title="Ihr Projekt beginnt mit einem Gespräch."
-        description="Erzählen Sie uns von Ihrer Idee. Wir beraten Sie persönlich und unverbindlich."
+        title="Lassen Sie uns über Ihre Ideen sprechen."
+        description="Ob erste Überlegung oder konkreter Plan: Schreiben Sie uns oder rufen Sie an. Gemeinsam klären wir, wie wir Sie unterstützen können."
       />
 
       {/* Main Contact Section */}
@@ -33,7 +33,7 @@ export function ContactPage() {
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-serif text-[#2f2e2e] mb-6">
-                  Direkte Kontaktaufnahme
+                  So erreichen Sie uns
                 </h2>
 
                 <div className="space-y-6 mb-10">
@@ -66,7 +66,7 @@ export function ContactPage() {
                       </div>
                       <div>
                         <div className="text-xs font-semibold uppercase tracking-wider text-[#a09282] mb-1">
-                          E-Mail für Baupläne & Anfragen
+                          Ihre Anfrage per E-Mail
                         </div>
                         <a
                           href={`mailto:${BUSINESS_CONFIG.email}`}
@@ -75,7 +75,7 @@ export function ContactPage() {
                           {BUSINESS_CONFIG.email}
                         </a>
                         <div className="text-xs text-[#2f2e2e]/75 mt-1">
-                          Gerne können Sie uns Pläne und Maßskizzen vorab per E-Mail zusenden.
+                          Fotos, Maße oder Skizzen helfen uns, Ihr Vorhaben besser einzuschätzen.
                         </div>
                       </div>
                     </div>
@@ -109,10 +109,10 @@ export function ContactPage() {
                     Einsatzgebiet & Vor-Ort-Termine
                   </div>
                   <p className="text-sm text-[#ece7e1]/85 leading-relaxed mb-3">
-                    Wir führen Verlegearbeiten im gesamten Raum <strong>{BUSINESS_CONFIG.serviceArea}</strong> durch.
+                    Wir sind für Fliesenarbeiten in <strong>{BUSINESS_CONFIG.serviceArea}</strong> für Sie da.
                   </p>
                   <p className="text-xs text-[#ece7e1]/70">
-                    Eine Vor-Ort-Besichtigung zur genauen Vermessung und Untergrundbegutachtung ist nach Absprache möglich.
+                    Wenn es für die Planung sinnvoll ist, vereinbaren wir mit Ihnen einen Termin vor Ort.
                   </p>
                 </div>
               </div>

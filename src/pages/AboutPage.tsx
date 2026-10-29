@@ -10,16 +10,16 @@ export function AboutPage() {
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
-        title={`Über uns & Philosophie – Liox Fliessen in ${BUSINESS_CONFIG.city}`}
-        description={`Handwerkliche Sorgfalt, präzise Planung und Respekt vor der Bausubstanz. Erfahren Sie mehr über Liox Fliessen in ${BUSINESS_CONFIG.city} und Umgebung.`}
+        title={`Über Liox Fliesen – Ihr Meisterbetrieb in ${BUSINESS_CONFIG.city}`}
+        description={`Lernen Sie Liox Fliesen aus ${BUSINESS_CONFIG.city} kennen: persönliche Beratung, klare Absprachen und sorgfältige Fliesenarbeiten für Ihre Räume.`}
       />
 
       <PageHero
         image="/images/projects/terrassen-02.webp"
         imageAlt="Geflieste Terrasse mit Übergang zum Garten"
         eyebrow="Über Liox Fliesen"
-        title="Handwerk mit Sorgfalt und Charakter."
-        description="Wir verbinden präzise Arbeit mit einem Blick für Räume, Materialien und die Menschen dahinter."
+        title="Ihr Zuhause. Unser Handwerk."
+        description="Liox Fliesen ist Ihr Meisterbetrieb in Alzey. Wir gestalten Bäder, Wohnräume und Außenbereiche mit Sorgfalt und einem Blick fürs Detail."
       />
 
       {/* Philosophy & Approach */}
@@ -43,14 +43,14 @@ export function AboutPage() {
                 Unsere Arbeitsweise
               </div>
               <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">
-                Warum gute Fliesenarbeiten bereits beim Estrich beginnen.
+                Wir nehmen uns Zeit für das, was Ihnen wichtig ist.
               </h2>
               <div className="space-y-4 text-sm text-[#2f2e2e]/80 leading-relaxed mb-8">
                 <p>
-                  Viele Bauherren achten zunächst nur auf das Fliesenmuster oder die Oberflächenfarbe. Doch die eigentliche Langlebigkeit eines Belags entscheidet sich im Verborgenen: bei der Prüfung von Restfeuchte, der Rissverharzung, der Ebenheit des Untergrunds und der lückenlosen Verbundabdichtung.
+                  Ein neues Bad, ein schöner Wohnbereich oder eine einladende Terrasse: Hinter jedem Auftrag steht eine persönliche Vorstellung. Wir hören zu, besprechen Ihre Wünsche und finden gemeinsam eine Lösung, die zu Ihren Räumen und Ihrem Alltag passt.
                 </p>
                 <p>
-                  Wir nehmen uns die nötige Zeit für die Vorbereitung, messen Achsen exakt ein, um unschöne Randstreifen zu vermeiden, und schneiden Kanten dort auf Gehrung, wo andere zu simplen Plastikschienen greifen.
+                  Von der Vorbereitung des Untergrunds bis zur letzten Fuge achten wir auf eine sorgfältige Ausführung. Dabei sind uns klare Absprachen und ein respektvoller Umgang mit Ihrem Zuhause genauso wichtig wie das fertige Ergebnis.
                 </p>
               </div>
 
@@ -58,19 +58,19 @@ export function AboutPage() {
                 <div className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-[#2f2e2e]">
-                    <strong>Keine Scheinlösungen:</strong> Was technisch nicht dauerhaft hält, wird von uns offen angesprochen und fachgerecht gelöst.
+                    <strong>Ehrliche Beratung:</strong> Wir erklären, was zu Ihrem Vorhaben passt, und sprechen mögliche Herausforderungen frühzeitig an.
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-[#2f2e2e]">
-                    <strong>Staubschutz & Sauberkeit:</strong> Sorgfältiges Abkleben von Laufwegen und Staubschutztüren während der Ausführung.
+                    <strong>Sorgfältiges Arbeiten:</strong> Wir achten auf Ihre Räume und eine geordnete Baustelle.
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-[#2f2e2e]">
-                    <strong>Verlässliche Termine:</strong> Vereinbarte Arbeitsphasen und Meilensteine werden gewissenhaft eingehalten.
+                    <strong>Klare Absprachen:</strong> Wir stimmen die Arbeitsschritte mit Ihnen ab und halten Sie über den Fortschritt auf dem Laufenden.
                   </span>
                 </div>
               </div>
@@ -84,13 +84,13 @@ export function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-2">
-              Qualitätsversprechen
+              Was uns wichtig ist
             </div>
             <h2 className="text-3xl font-serif text-[#2f2e2e] mb-4">
-              Vier feste Grundsätze für jede Baustelle
+              Gute Arbeit beginnt mit einer guten Zusammenarbeit.
             </h2>
             <p className="text-sm text-[#2f2e2e]/75">
-              Ohne künstliche Werbeversprechen, sondern messbar am fertigen Gewerk.
+              So gehen wir Ihr Projekt an – vom ersten Gespräch bis zur gemeinsamen Übergabe.
             </p>
           </div>
 
@@ -99,10 +99,10 @@ export function AboutPage() {
               <div>
                 <Ruler className="w-8 h-8 text-[#a09282] mb-4" />
                 <h3 className="text-lg font-semibold text-[#2f2e2e] mb-2">
-                  Planheit & Symmetrie
+                  Durchdachte Gestaltung
                 </h3>
                 <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Präzise Achsausrichtung vor dem ersten Schnitt und Einsatz von Zuglaschen-Nivelliersystemen gegen störende Überzähne.
+                  Wir stimmen Formate, Verlegemuster und Fugen aufeinander ab, damit ein stimmiges Gesamtbild entsteht.
                 </p>
               </div>
             </div>
@@ -111,10 +111,10 @@ export function AboutPage() {
               <div>
                 <ShieldCheck className="w-8 h-8 text-[#a09282] mb-4" />
                 <h3 className="text-lg font-semibold text-[#2f2e2e] mb-2">
-                  DIN-Normen & Feuchteschutz
+                  Sorgfältige Vorbereitung
                 </h3>
                 <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Strikte Ausführung nach DIN 18534 (Innenraumabdichtung) und DIN 18202 (Toleranzen im Hochbau) mit zugelassenen Systemkomponenten.
+                  Wir prüfen den Untergrund und berücksichtigen die Anforderungen des Raums, bevor die Verlegung beginnt.
                 </p>
               </div>
             </div>
@@ -126,7 +126,7 @@ export function AboutPage() {
                   Gehrungen & Kanten
                 </h3>
                 <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Nassschnitt und 45°-Gehrungsschliff für architektonisch nahtlose Kanten an Wandnischen und Außenecken.
+                  Passende Abschlüsse, saubere Schnitte und ein gleichmäßiges Fugenbild machen für uns den Unterschied.
                 </p>
               </div>
             </div>
@@ -138,7 +138,7 @@ export function AboutPage() {
                   Klare Kommunikation
                 </h3>
                 <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Detaillierte Angebote ohne versteckte Posten, verlässliche Absprachen und eine persönliche Betreuung von Anfang bis Ende.
+                  Wir besprechen Leistungen und Ablauf verständlich und bleiben während der Umsetzung mit Ihnen im Austausch.
                 </p>
               </div>
             </div>
@@ -153,10 +153,10 @@ export function AboutPage() {
             Regionaler Fachbetrieb
           </div>
           <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">
-            Verwurzelt in {BUSINESS_CONFIG.city} und der Region
+            Für Sie in {BUSINESS_CONFIG.city} und Umgebung
           </h2>
           <p className="text-base text-[#2f2e2e]/80 leading-relaxed mb-8">
-            Wir betreuen Bauprojekte in {BUSINESS_CONFIG.serviceArea}. Kurze Anfahrtswege ermöglichen uns flexible Besichtigungstermine und eine enge Begleitung während der gesamten Bauphase.
+            Unser Standort ist {BUSINESS_CONFIG.city}. Von hier aus begleiten wir Ihre Fliesenarbeiten in der Region – bei Neubauten ebenso wie bei der Renovierung bestehender Räume. Sprechen Sie uns gerne auf Ihr Vorhaben an.
           </p>
 
           <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-4">

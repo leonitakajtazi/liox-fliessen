@@ -113,7 +113,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
           Unverbindliches Angebot anfordern
         </h3>
         <p className="text-sm text-[#2f2e2e]/75">
-          Schreiben Sie uns kurz Ihr Anliegen. Wir melden uns innerhalb von 1–2 Werktagen.
+          Beschreiben Sie kurz, was Sie vorhaben. Wir melden uns persönlich bei Ihnen, um die nächsten Schritte zu besprechen.
         </p>
       </div>
 

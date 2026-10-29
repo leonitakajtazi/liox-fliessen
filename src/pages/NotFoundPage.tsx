@@ -8,7 +8,7 @@ export function NotFoundPage() {
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e] py-24 sm:py-32">
       <SeoMeta
-        title={`Seite nicht gefunden (404) – Liox Fliessen`}
+        title={`Seite nicht gefunden (404) – Liox Fliesen`}
         description="Die angeforderte Unterseite konnte leider nicht gefunden werden. Nutzen Sie unsere Übersicht, um zur Startseite oder zu unseren Leistungen zu gelangen."
       />
 
@@ -64,7 +64,7 @@ export function NotFoundPage() {
               </Link>
             ))}
             <Link href="/ueber-uns" className="hover:text-[#a09282] transition-colors py-1">
-              · Über Liox Fliessen
+              · Über Liox Fliesen
             </Link>
           </div>
         </div>

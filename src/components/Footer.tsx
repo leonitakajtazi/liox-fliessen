@@ -17,7 +17,7 @@ export function Footer() {
                 <img src="/images/logo-meisterbetrieb.webp" alt="Liox Fliesen" className="block w-full h-full object-contain" />
               </Link>
               <p className="text-sm text-[#ece7e1]/75 leading-relaxed mb-6">
-                Fachgerechte Fliesenarbeiten, moderne Badsanierung, Großformatverlegung und Terrassenbeläge mit höchstem Anspruch an Präzision und Langlebigkeit.
+                Ihr Fliesenleger-Meisterbetrieb in Alzey. Wir gestalten Bäder, Wohnräume und Außenbereiche – mit persönlicher Beratung und sorgfältiger Ausführung.
               </p>
               <div className="text-xs text-[#a09282] uppercase tracking-wider font-semibold">
                 Handwerkliche Sorgfalt · Zuverlässigkeit · Klare Planung
@@ -135,7 +135,7 @@ export function Footer() {
           {/* Bottom Bar */}
           <div className="pt-8 border-t border-[#a09282]/20 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#ece7e1]/60">
             <div>
-              © {new Date().getFullYear()} Liox Fliessen. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} Liox Fliesen. Alle Rechte vorbehalten.
             </div>
 
             <div className="flex flex-wrap items-center gap-6">

@@ -12,8 +12,8 @@ export function HomePage() {
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
-        title="Liox Fliessen – Präzise Fliesenverlegung & Handwerk"
-        description={`Fliesenarbeiten für anspruchsvolle Wohn- und Geschäftsräume in ${BUSINESS_CONFIG.city} und Umgebung. Meisterhafte Fliesenverlegung, Badfliesen & Großformat.`}
+        title={`Liox Fliesen – Ihr Fliesenleger-Meisterbetrieb in ${BUSINESS_CONFIG.city}`}
+        description={`Ihr Meisterbetrieb für Fliesenarbeiten in ${BUSINESS_CONFIG.city} und Umgebung. Bäder, Wohnräume und Terrassen – persönlich beraten und sorgfältig umgesetzt.`}
       />
 
       {/* ---------------------------------------------------- */}
@@ -39,7 +39,7 @@ export function HomePage() {
               <div data-hero-step="0" className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
                 <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#a09282]">
                   <span className="w-2 h-2 bg-[#a09282] animate-pulse"></span>
-                  <span>Handwerkliche Präzision</span>
+                  <span>Ihr Fliesenleger-Meisterbetrieb</span>
                   <span aria-hidden="true" className="hidden sm:inline">·</span>
                   <span className="hidden sm:inline">{BUSINESS_CONFIG.city} & Umgebung</span>
                 </div>
@@ -53,8 +53,8 @@ export function HomePage() {
               </h1>
 
               <p data-hero-step="3" className="text-sm sm:text-lg lg:text-xl text-[#ece7e1] leading-relaxed max-w-2xl mb-6 sm:mb-8 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
-                Fliesenarbeiten für anspruchsvolle Wohn- und Geschäftsräume in{' '}
-                <strong className="font-semibold text-white">{BUSINESS_CONFIG.city}</strong> und Umgebung. Von modernen Bädern bis zu fugenarmen Großformaten.
+                Ihr Meisterbetrieb für Fliesenarbeiten in{' '}
+                <strong className="font-semibold text-white">{BUSINESS_CONFIG.city}</strong> und Umgebung. Wir gestalten Bäder, Wohnräume und Terrassen passend zu Ihren Wünschen.
               </p>
 
               {/* Action Buttons */}
@@ -78,16 +78,16 @@ export function HomePage() {
               {/* Trust markers */}
               <div data-hero-step="5" className="pt-4 sm:pt-6 border-t border-[#a09282]/40 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 text-xs text-[#ece7e1] drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
                 <div>
-                  <div className="font-semibold text-white text-sm">DIN 18534</div>
-                  <div className="text-[#ece7e1]/85">Fachgerechte Badabdichtung</div>
+                  <div className="font-semibold text-white text-sm">Persönlich</div>
+                  <div className="text-[#ece7e1]/85">Beratung zu Ihrem Vorhaben</div>
                 </div>
                 <div>
-                  <div className="font-semibold text-white text-sm">Nivelliersystem</div>
-                  <div className="text-[#ece7e1]/85">Garantierte Planheit</div>
+                  <div className="font-semibold text-white text-sm">Durchdacht</div>
+                  <div className="text-[#ece7e1]/85">Gestaltung und Ausführung</div>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
-                  <div className="font-semibold text-white text-sm">Staubschutz</div>
-                  <div className="text-[#ece7e1]/85">Saubere Baustellenführung</div>
+                  <div className="font-semibold text-white text-sm">Sorgfältig</div>
+                  <div className="text-[#ece7e1]/85">Bis ins Detail</div>
                 </div>
               </div>
             </div>
@@ -102,14 +102,14 @@ export function HomePage() {
       <section className="pt-14 lg:pt-20 pb-10 lg:pb-12 bg-[#ece7e1] border-b border-[#a09282]/20">
         <div data-reveal-sequence className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-3">
-            Über Liox Fliessen
+            Über Liox Fliesen
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif text-[#2f2e2e] mb-8 leading-snug [text-wrap:balance]">
             Präzises Handwerk. Dauerhafte Qualität.
           </h2>
           <div className="max-w-2xl mx-auto text-base sm:text-lg text-[#2f2e2e]/80 leading-relaxed text-center">
             <p>
-              <strong className="font-semibold text-[#2f2e2e]">Liox Fliessen</strong> steht für sorgfältige Vorbereitung, exakte Verlegung und saubere Ergebnisse. Mit moderner Technik und Liebe zum Detail schaffen wir langlebige Flächen für Ihr Zuhause und Gewerbe.
+              Bei <strong className="font-semibold text-[#2f2e2e]">Liox Fliesen</strong> verbinden wir Ihre Ideen mit unserem Handwerk. Wir beraten Sie persönlich, bereiten die Arbeiten sorgfältig vor und verlegen mit einem Blick für das Gesamtbild.
             </p>
           </div>
         </div>
@@ -126,7 +126,7 @@ export function HomePage() {
                 Leistungsspektrum
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-[#2f2e2e]">
-                Unsere Kernkompetenzen
+                Fliesenarbeiten für Ihre Räume
               </h2>
             </div>
             <Link
@@ -184,7 +184,7 @@ export function HomePage() {
                       href={`/leistungen#${service.slug}`}
                       className="text-xs font-semibold uppercase tracking-wider text-[#2f2e2e] group-hover:text-[#a09282] transition-colors flex items-center gap-2"
                     >
-                      <span>Leistungsdetails & Ablauf</span>
+                      <span>Mehr zur Leistung</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -204,10 +204,10 @@ export function HomePage() {
                 Interaktiver Vergleich
               </div>
               <h3 className="text-2xl font-serif text-[#2f2e2e] mb-2">
-                Vorher & Nachher: Verwandlung durch Meisterhand
+                Aus Bestehendem wird Neues.
               </h3>
               <p className="text-xs sm:text-sm text-[#2f2e2e]/75">
-                Ziehen Sie den mittleren Schieberegler nach links und rechts, um die Wirkung präziser, fugenarmer Fliesenverlegung im direkten Vergleich zu sehen.
+                Sehen Sie, wie sich Bad und Balkon verändert haben. Bewegen Sie den Regler für den direkten Vorher-Nachher-Vergleich.
               </p>
             </div>
 
@@ -246,10 +246,10 @@ export function HomePage() {
               Verlässlicher Projektablauf
             </div>
             <h2 className="text-3xl sm:text-4xl font-serif text-[#2f2e2e] mb-4">
-              In vier Schritten zu Ihrem Wunschbelag
+              So wird aus Ihrer Idee ein Projekt.
             </h2>
             <p className="text-sm text-[#2f2e2e]/75">
-              Transparente Kommunikation und eine verbindliche Organisation schützen vor unliebsamen Überraschungen und Verzögerungen.
+              Wir besprechen Ihre Wünsche, planen die nächsten Schritte und begleiten Sie bis zur Übergabe.
             </p>
           </div>
 
@@ -299,14 +299,14 @@ export function HomePage() {
                 Materialien & Details
               </div>
               <h2 className="text-3xl sm:text-4xl font-serif text-[#2f2e2e] mb-6">
-                Perfektion zeigt sich an den Kanten und Fugen.
+                Kleine Details. Ein stimmiges Gesamtbild.
               </h2>
               <div className="space-y-4 text-sm text-[#2f2e2e]/80 leading-relaxed mb-8">
                 <p>
-                  Ob schmale Haarfugen ab 1,5 mm, exakt auf Gehrung geschliffene Fliesenkanten (Jolly-Schnitt) oder der lückenlose Hohlraumschutz im Dünnbettverfahren: Es sind die scheinbar unscheinbaren handwerklichen Details, die den Unterschied zwischen einem gewöhnlichen Belag und meisterhafter Verlegung ausmachen.
+                  Wie eine Fläche wirkt, zeigt sich auch an ihren Übergängen. Wir achten auf saubere Schnitte, passende Kanten und ein gleichmäßiges Fugenbild – damit Ihr Raum als Ganzes überzeugt.
                 </p>
                 <p>
-                  Wir arbeiten ausschließlich mit geprüften Systemklebern nach DIN EN 12004 und hochwertigen, farbbeständigen Fugenmörteln führender deutscher Bauchemie-Hersteller.
+                  Materialien und Verlegetechnik stimmen wir auf den Untergrund, das Fliesenformat und die spätere Nutzung ab. Welche Ausführung zu Ihrem Projekt passt, besprechen wir mit Ihnen.
                 </p>
               </div>
 
@@ -352,7 +352,7 @@ export function HomePage() {
               Wissenswertes zu Ihrer Fliesenverlegung
             </h2>
             <p className="text-sm text-[#2f2e2e]/75">
-              Hier finden Sie sachliche Antworten auf die wichtigsten Fragen zur Vorbereitung und Beauftragung.
+              Die wichtigsten Antworten für den Start Ihres Projekts. Weitere Fragen klären wir gerne persönlich.
             </p>
           </div>
 
@@ -378,7 +378,7 @@ export function HomePage() {
                 Lassen Sie uns Ihr Projekt besprechen.
               </h2>
               <p className="text-base text-[#2f2e2e]/80 leading-relaxed mb-8">
-                Ganz gleich, ob Sie ein konkretes Bauvorhaben planen oder eine erste fachliche Einschätzung zu Formaten und Untergründen wünschen: Wir stehen Ihnen gerne beratend zur Seite.
+                Sie planen neue Fliesen oder möchten einen bestehenden Bereich renovieren? Erzählen Sie uns von Ihrem Vorhaben – wir besprechen mit Ihnen die nächsten Schritte.
               </p>
 
               <div className="space-y-4 text-sm text-[#2f2e2e] mb-8">
