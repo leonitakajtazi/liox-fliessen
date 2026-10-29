@@ -65,10 +65,10 @@ export function Header() {
             >
               <span className="flex w-24 h-[76px] items-center justify-center">
                 <img
-                  src="/images/logo1.webp"
+                  src="/images/logo-meisterbetrieb.webp"
                   alt="Liox Fliesen"
-                  width={1254}
-                  height={1254}
+                  width={1000}
+                  height={1000}
                   className="block w-full h-full object-contain"
                 />
               </span>

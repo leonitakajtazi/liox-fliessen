@@ -39,7 +39,7 @@ export function PageLoader({ onComplete }: { onComplete: () => void }) {
     <div className={`page-loader ${leaving ? 'page-loader-leaving' : ''}`} role="status" aria-label="Website wird geladen">
       <div className="flex flex-col items-center gap-7">
         <div className="w-56 h-56">
-          <img src="/images/logo1.webp" alt="Liox Fliesen" width={1254} height={1254}
+          <img src="/images/logo-meisterbetrieb.webp" alt="Liox Fliesen" width={1000} height={1000}
             className="block w-full h-full object-contain" />
         </div>
         <div className="h-[3px] w-56 overflow-hidden bg-[#a09282]/25" aria-hidden="true">

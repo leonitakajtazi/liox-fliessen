@@ -11,5 +11,7 @@ for (const directory of ['public/images', 'src/assets/images']) {
       .webp({ quality: hero ? 72 : 80 }).toFile(input.replace(/\.[^.]+$/, '.webp'));
   }
 }
-await sharp('public/images/logo1.png').resize({ width: 480, withoutEnlargement: true })
-  .webp({ quality: 85 }).toFile('public/images/logo1.webp');
+await sharp('public/images/logo-meisterbetrieb.png').resize({ width: 480, withoutEnlargement: true })
+  .webp({ quality: 90 }).toFile('public/images/logo-meisterbetrieb.webp');
+await sharp('public/images/logo-meisterbetrieb.png').resize(64).png()
+  .toFile('public/images/favicon-meisterbetrieb.png');

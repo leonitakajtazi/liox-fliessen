@@ -198,7 +198,7 @@ async function startServer() {
       if (fs.existsSync(indexPath)) {
         const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
         const html = fs.readFileSync(indexPath, 'utf8')
-          .replaceAll('content="/images/logo1.png"', `content="${origin}/images/logo1.png"`);
+          .replaceAll('content="/images/logo-meisterbetrieb.png"', `content="${origin}/images/logo-meisterbetrieb.png"`);
         res.type('html').send(html);
       } else {
         res.status(404).send('Not found');

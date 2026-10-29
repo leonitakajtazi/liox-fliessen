@@ -14,7 +14,7 @@ export function Footer() {
             {/* Col 1: Brand & Philosophy */}
             <div className="flex flex-col">
               <Link href="/" aria-label="Liox Fliesen Startseite" className="block w-40 h-40 mb-4">
-                <img src="/images/logo1.webp" alt="Liox Fliesen" className="block w-full h-full object-contain" />
+                <img src="/images/logo-meisterbetrieb.webp" alt="Liox Fliesen" className="block w-full h-full object-contain" />
               </Link>
               <p className="text-sm text-[#ece7e1]/75 leading-relaxed mb-6">
                 Fachgerechte Fliesenarbeiten, moderne Badsanierung, Großformatverlegung und Terrassenbeläge mit höchstem Anspruch an Präzision und Langlebigkeit.
