@@ -30,17 +30,17 @@ export function AboutPage() {
         description="Über 10 Jahre Berufserfahrung. Mehr als 100 erfolgreich abgeschlossene Projekte. Ein Anspruch: Perfektion bis ins kleinste Detail."
       />
 
-      <section aria-label="LIOX Fliesen in Zahlen" className="bg-[#1b1b1b] py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <dl className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+      <section aria-label="LIOX Fliesen in Zahlen" className="bg-[#ece7e1] border-b border-[#a09282]/20 py-6 sm:py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <dl className="grid grid-cols-3 divide-x divide-[#a09282]/30">
             {[
               { value: '10+', label: 'Jahre Berufserfahrung' },
               { value: '100+', label: 'Erfolgreiche Projekte' },
               { value: '100 %', label: 'Meisteranspruch' },
             ].map((stat) => (
-              <div key={stat.label} className="rounded-[2rem] bg-[#2f2e2e] px-5 py-10 sm:py-12 text-center flex flex-col items-center justify-center gap-4">
-                <dt className="order-2 max-w-[16rem] text-lg lg:text-xl leading-relaxed text-[#ece7e1]/75">{stat.label}</dt>
-                <dd className="order-1 text-5xl lg:text-6xl font-semibold tracking-tight text-white tabular-nums">{stat.value}</dd>
+              <div key={stat.label} className="px-2 sm:px-6 py-2 text-center flex flex-col items-center gap-2">
+                <dt className="order-2 max-w-[10rem] text-[10px] sm:text-xs leading-relaxed text-[#2f2e2e]/75">{stat.label}</dt>
+                <dd className="order-1 text-2xl sm:text-3xl font-serif leading-none text-[#2f2e2e] tabular-nums whitespace-nowrap">{stat.value}</dd>
               </div>
             ))}
           </dl>
@@ -81,8 +81,9 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 border-b border-[#a09282]/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 lg:py-20 border-b border-[#a09282]/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div>
           <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">
             Erfahrung, die Vertrauen schafft.
           </h2>
@@ -94,11 +95,19 @@ export function AboutPage() {
               Unser Ziel ist es, nicht einfach nur Fliesen zu verlegen, sondern Räume zu gestalten, die durch Qualität, Funktionalität und zeitlose Eleganz überzeugen.
             </p>
           </div>
+          </div>
+          <div className="overflow-hidden border border-[#a09282]/20">
+            <img src="/images/projects/terrassen-01.webp" alt="Präzise verlegte großformatige Terrassenplatten in heller Steinoptik" width={1200} height={1600} loading="lazy" decoding="async" className="w-full aspect-[4/3] lg:aspect-[3/2] object-cover object-[center_65%]" />
+          </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white border-b border-[#a09282]/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 lg:py-20 bg-white border-b border-[#a09282]/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="order-2 lg:order-1 overflow-hidden border border-[#a09282]/20">
+            <img src="/images/projects/baeder-05.webp" alt="Individuelle Badgestaltung mit Doppelwaschtisch, beleuchtetem Spiegel und Terrazzo-Fliesen" width={1200} height={1600} loading="lazy" decoding="async" className="w-full aspect-[4/3] lg:aspect-square object-cover" />
+          </div>
+          <div className="order-1 lg:order-2">
           <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">Unsere Philosophie</h2>
           <div className="space-y-5 text-base text-[#2f2e2e]/80 leading-relaxed">
             <p className="text-lg font-semibold text-[#2f2e2e]">
@@ -113,6 +122,7 @@ export function AboutPage() {
             <p className="font-semibold text-[#2f2e2e]">
               LIOX FLIESEN – Ihr Meisterbetrieb für Qualität, die man sieht und spürt.
             </p>
+          </div>
           </div>
         </div>
       </section>
