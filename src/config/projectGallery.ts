@@ -37,14 +37,8 @@ export const PROJECT_CATEGORIES = [
       },
       {
         "src": "/images/projects/baeder-06.webp",
-        "alt": "Dusche mit goldfarbenem Mosaik",
+        "alt": "Exklusive Wellnessgestaltung mit hochwertigem Goldmosaik",
         "width": 1005,
-        "height": 1600
-      },
-      {
-        "src": "/images/projects/baeder-07.webp",
-        "alt": "Mosaikdetail mit polygonaler Form",
-        "width": 1201,
         "height": 1600
       },
       {
@@ -55,7 +49,7 @@ export const PROJECT_CATEGORIES = [
       },
       {
         "src": "/images/projects/baeder-09.webp",
-        "alt": "Duschboden mit Linienablauf",
+        "alt": "Bodengleiche Dusche mit großformatigen Fliesen und Linienentwässerung",
         "width": 739,
         "height": 1600
       },
@@ -70,6 +64,12 @@ export const PROJECT_CATEGORIES = [
         "alt": "Detail eines bodengleichen Duschablaufs",
         "width": 1600,
         "height": 1200
+      },
+      {
+        "src": "/images/projects/baeder-12.webp",
+        "alt": "Badezimmer mit grauen Fliesen, Glasdusche und indirekter Deckenbeleuchtung",
+        "width": 1200,
+        "height": 1714
       }
     ]
   },
@@ -168,6 +168,19 @@ export const PROJECT_CATEGORIES = [
         "src": "/images/projects/innenraeume-05.webp",
         "alt": "Gefliester Eingangsbereich mit Stufen",
         "width": 984,
+        "height": 1600
+      }
+    ]
+  },
+  {
+    "id": "meisterstuecke",
+    "title": "Meisterstücke",
+    "description": "Individuelle Gestaltungen mit präziser Fliesenverarbeitung.",
+    "images": [
+      {
+        "src": "/images/projects/baeder-07.webp",
+        "alt": "Meisterstück – Individuell gefertigter Spieltisch mit präziser Fliesenverarbeitung",
+        "width": 1201,
         "height": 1600
       }
     ]

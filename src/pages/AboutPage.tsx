@@ -1,28 +1,52 @@
+﻿import React from 'react';
 import { PageHero } from '../components/PageHero';
-
-import React from 'react';
 import { BUSINESS_CONFIG } from '../config/business';
 import { SeoMeta } from '../components/SeoMeta';
 import { Link } from '../context/RouterContext';
-import { Check, ShieldCheck, Ruler, Sparkles, Phone, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+const services = [
+  'Hochwertige Fliesen- und Natursteinarbeiten',
+  'Moderne Badgestaltung und Badsanierung',
+  'Großformatige Fliesen und XXL-Formate',
+  'Fachgerechte Abdichtungsarbeiten',
+  'Balkon- und Terrassenbeläge',
+  'Individuelle Fliesenlösungen für Neubau und Sanierung',
+];
 
 export function AboutPage() {
   return (
     <div className="bg-[#ece7e1] text-[#2f2e2e]">
       <SeoMeta
         title={`Über Liox Fliesen – Ihr Meisterbetrieb in ${BUSINESS_CONFIG.city}`}
-        description={`Lernen Sie Liox Fliesen aus ${BUSINESS_CONFIG.city} kennen: persönliche Beratung, klare Absprachen und sorgfältige Fliesenarbeiten für Ihre Räume.`}
+        description="Über 10 Jahre Berufserfahrung und mehr als 100 erfolgreich abgeschlossene Projekte: LIOX Fliesen ist Ihr Meisterbetrieb für hochwertige Fliesenarbeiten in Alzey und Umgebung."
       />
 
       <PageHero
         image="/images/projects/terrassen-02.webp"
         imageAlt="Geflieste Terrasse mit Übergang zum Garten"
         eyebrow="Über Liox Fliesen"
-        title="Ihr Zuhause. Unser Handwerk."
-        description="Liox Fliesen ist Ihr Meisterbetrieb in Alzey. Wir gestalten Bäder, Wohnräume und Außenbereiche mit Sorgfalt und einem Blick fürs Detail."
+        title="LIOX FLIESEN – Handwerk mit Leidenschaft. Qualität mit Meisteranspruch."
+        description="Über 10 Jahre Berufserfahrung. Mehr als 100 erfolgreich abgeschlossene Projekte. Ein Anspruch: Perfektion bis ins kleinste Detail."
       />
 
-      {/* Philosophy & Approach */}
+      <section aria-label="LIOX Fliesen in Zahlen" className="bg-[#1b1b1b] py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <dl className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
+            {[
+              { value: '10+', label: 'Jahre Berufserfahrung' },
+              { value: '100+', label: 'Erfolgreiche Projekte' },
+              { value: '100 %', label: 'Meisteranspruch' },
+            ].map((stat) => (
+              <div key={stat.label} className="rounded-[2rem] bg-[#2f2e2e] px-5 py-10 sm:py-12 text-center flex flex-col items-center justify-center gap-4">
+                <dt className="order-2 max-w-[16rem] text-lg lg:text-xl leading-relaxed text-[#ece7e1]/75">{stat.label}</dt>
+                <dd className="order-1 text-5xl lg:text-6xl font-semibold tracking-tight text-white tabular-nums">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       <section className="py-20 border-b border-[#a09282]/20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -37,129 +61,74 @@ export function AboutPage() {
                 />
               </div>
             </div>
-
             <div className="lg:col-span-6">
-              <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-2">
-                Unsere Arbeitsweise
-              </div>
-              <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">
-                Wir nehmen uns Zeit für das, was Ihnen wichtig ist.
-              </h2>
-              <div className="space-y-4 text-sm text-[#2f2e2e]/80 leading-relaxed mb-8">
-                <p>
-                  Ein neues Bad, ein schöner Wohnbereich oder eine einladende Terrasse: Hinter jedem Auftrag steht eine persönliche Vorstellung. Wir hören zu, besprechen Ihre Wünsche und finden gemeinsam eine Lösung, die zu Ihren Räumen und Ihrem Alltag passt.
+              <div className="space-y-5 text-sm text-[#2f2e2e]/80 leading-relaxed">
+                <p className="text-lg font-semibold text-[#2f2e2e]">
+                  LIOX Fliesen ist Ihr zuverlässiger Meisterbetrieb für hochwertige Fliesenarbeiten, moderne Badgestaltung und individuelle Fliesenlösungen in Alzey und Umgebung.
                 </p>
                 <p>
-                  Von der Vorbereitung des Untergrunds bis zur letzten Fuge achten wir auf eine sorgfältige Ausführung. Dabei sind uns klare Absprachen und ein respektvoller Umgang mit Ihrem Zuhause genauso wichtig wie das fertige Ergebnis.
+                  Hinter unserem Unternehmen stehen langjährige Erfahrung, fundiertes Fachwissen und die Leidenschaft für präzises Handwerk. Als inhabergeführter Meisterbetrieb verbinden wir traditionelle Handwerkskunst mit modernen Verlegetechniken, hochwertigen Materialien und einem besonderen Gespür für Ästhetik und Design.
                 </p>
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#2f2e2e]">
-                    <strong>Ehrliche Beratung:</strong> Wir erklären, was zu Ihrem Vorhaben passt, und sprechen mögliche Herausforderungen frühzeitig an.
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#2f2e2e]">
-                    <strong>Sorgfältiges Arbeiten:</strong> Wir achten auf Ihre Räume und eine geordnete Baustelle.
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-[#2f2e2e]">
-                    <strong>Klare Absprachen:</strong> Wir stimmen die Arbeitsschritte mit Ihnen ab und halten Sie über den Fortschritt auf dem Laufenden.
-                  </span>
-                </div>
+                <p>
+                  Ob exklusive Badsanierung, großformatige Fliesen, anspruchsvolle Natursteinarbeiten oder individuelle Gestaltungskonzepte – jedes Projekt wird mit höchster Sorgfalt, fachlicher Kompetenz und Liebe zum Detail umgesetzt.
+                </p>
+                <p>
+                  Dabei legen wir besonderen Wert auf eine persönliche Beratung, transparente Kommunikation, zuverlässige Planung und eine saubere, termingerechte Ausführung.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pillars of Quality */}
-      <section className="py-20 border-b border-[#a09282]/20 bg-[#ece7e1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
-            <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-2">
-              Was uns wichtig ist
-            </div>
-            <h2 className="text-3xl font-serif text-[#2f2e2e] mb-4">
-              Gute Arbeit beginnt mit einer guten Zusammenarbeit.
-            </h2>
-            <p className="text-sm text-[#2f2e2e]/75">
-              So gehen wir Ihr Projekt an – vom ersten Gespräch bis zur gemeinsamen Übergabe.
+      <section className="py-20 border-b border-[#a09282]/20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">
+            Erfahrung, die Vertrauen schafft.
+          </h2>
+          <div className="space-y-4 text-base text-[#2f2e2e]/80 leading-relaxed">
+            <p>
+              Mit über 10 Jahren Berufserfahrung und mehr als 100 erfolgreich abgeschlossenen Projekten wissen wir, worauf es bei hochwertigen Fliesenarbeiten ankommt.
+            </p>
+            <p>
+              Unser Ziel ist es, nicht einfach nur Fliesen zu verlegen, sondern Räume zu gestalten, die durch Qualität, Funktionalität und zeitlose Eleganz überzeugen.
             </p>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white border border-[#a09282]/30 p-6 flex flex-col justify-between">
-              <div>
-                <Ruler className="w-8 h-8 text-[#a09282] mb-4" />
-                <h3 className="text-lg font-semibold text-[#2f2e2e] mb-2">
-                  Durchdachte Gestaltung
-                </h3>
-                <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Wir stimmen Formate, Verlegemuster und Fugen aufeinander ab, damit ein stimmiges Gesamtbild entsteht.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white border border-[#a09282]/30 p-6 flex flex-col justify-between">
-              <div>
-                <ShieldCheck className="w-8 h-8 text-[#a09282] mb-4" />
-                <h3 className="text-lg font-semibold text-[#2f2e2e] mb-2">
-                  Sorgfältige Vorbereitung
-                </h3>
-                <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Wir prüfen den Untergrund und berücksichtigen die Anforderungen des Raums, bevor die Verlegung beginnt.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white border border-[#a09282]/30 p-6 flex flex-col justify-between">
-              <div>
-                <Sparkles className="w-8 h-8 text-[#a09282] mb-4" />
-                <h3 className="text-lg font-semibold text-[#2f2e2e] mb-2">
-                  Gehrungen & Kanten
-                </h3>
-                <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Passende Abschlüsse, saubere Schnitte und ein gleichmäßiges Fugenbild machen für uns den Unterschied.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white border border-[#a09282]/30 p-6 flex flex-col justify-between">
-              <div>
-                <Check className="w-8 h-8 text-[#a09282] mb-4" />
-                <h3 className="text-lg font-semibold text-[#2f2e2e] mb-2">
-                  Klare Kommunikation
-                </h3>
-                <p className="text-xs text-[#2f2e2e]/75 leading-relaxed">
-                  Wir besprechen Leistungen und Ablauf verständlich und bleiben während der Umsetzung mit Ihnen im Austausch.
-                </p>
-              </div>
-            </div>
+      <section className="py-20 bg-white border-b border-[#a09282]/20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">Unsere Philosophie</h2>
+          <div className="space-y-5 text-base text-[#2f2e2e]/80 leading-relaxed">
+            <p className="text-lg font-semibold text-[#2f2e2e]">
+              Qualität ist für uns kein Versprechen, sondern unser täglicher Anspruch.
+            </p>
+            <p>
+              Jedes Zuhause ist einzigartig. Deshalb nehmen wir uns Zeit für Ihre Wünsche und entwickeln individuelle Lösungen, die perfekt zu Ihren Vorstellungen passen.
+            </p>
+            <p>
+              Von der ersten Beratung über die sorgfältige Vorbereitung bis zur letzten Fuge stehen Präzision, Zuverlässigkeit und Kundenzufriedenheit bei uns an erster Stelle.
+            </p>
+            <p className="font-semibold text-[#2f2e2e]">
+              LIOX FLIESEN – Ihr Meisterbetrieb für Qualität, die man sieht und spürt.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Location & Team Note */}
-      <section className="py-20 bg-white border-b border-[#a09282]/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-xs font-semibold uppercase tracking-widest text-[#a09282] mb-2">
-            Regionaler Fachbetrieb
-          </div>
-          <h2 className="text-3xl font-serif text-[#2f2e2e] mb-6">
-            Für Sie in {BUSINESS_CONFIG.city} und Umgebung
-          </h2>
-          <p className="text-base text-[#2f2e2e]/80 leading-relaxed mb-8">
-            Unser Standort ist {BUSINESS_CONFIG.city}. Von hier aus begleiten wir Ihre Fliesenarbeiten in der Region – bei Neubauten ebenso wie bei der Renovierung bestehender Räume. Sprechen Sie uns gerne auf Ihr Vorhaben an.
-          </p>
-
-          <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-serif text-[#2f2e2e] mb-10">Unsere Leistungen auf einen Blick</h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
+            {services.map((service) => (
+              <li key={service} className="bg-white border border-[#a09282]/30 p-6 flex items-start gap-3">
+                <Check className="w-5 h-5 text-[#a09282] shrink-0 mt-0.5" aria-hidden="true" />
+                <span className="text-sm leading-relaxed">{service}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/kontakt"
               className="px-8 py-4 bg-[#2f2e2e] text-[#ece7e1] text-xs uppercase tracking-wider font-semibold"
