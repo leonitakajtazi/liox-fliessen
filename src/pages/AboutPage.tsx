@@ -97,7 +97,7 @@ export function AboutPage() {
           </div>
           </div>
           <div className="overflow-hidden border border-[#a09282]/20">
-            <img src="/images/projects/terrassen-01.webp" alt="Präzise verlegte großformatige Terrassenplatten in heller Steinoptik" width={1200} height={1600} loading="lazy" decoding="async" className="w-full aspect-[4/3] lg:aspect-[3/2] object-cover object-[center_65%]" />
+            <img src="/images/projects/baeder-03.webp" alt="Helles Badezimmer mit großformatigen grauen Fliesen, Glasdusche und Holzwaschtisch" width={1600} height={1200} loading="lazy" decoding="async" className="w-full aspect-[4/3] lg:aspect-[3/2] object-cover object-center" />
           </div>
         </div>
       </section>
