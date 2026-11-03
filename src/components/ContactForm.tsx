@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { BUSINESS_CONFIG } from '../config/business';
+import { useForm, ValidationError } from '@formspree/react';
+import { BUSINESS_CONFIG, SERVICES } from '../config/business';
 import { Link } from '../context/RouterContext';
 import { CheckCircle2, AlertCircle, Loader2, Send, Phone } from 'lucide-react';
 
@@ -18,12 +19,13 @@ export function ContactForm({ defaultService }: ContactFormProps) {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<{
-    success: boolean;
-    message: string;
-    referenceId?: string;
-  } | null>(null);
+  const [state, submitToFormspree] = useForm("xyeelkpk");
+  const isSubmitting = state.submitting;
+  const submitResult = state.succeeded
+    ? { success: true, message: 'Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze.' }
+    : state.errors
+      ? { success: false, message: 'Beim Absenden ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Eingaben oder versuchen Sie es erneut.' }
+      : null;
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -50,60 +52,17 @@ export function ContactForm({ defaultService }: ContactFormProps) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitResult(null);
-
-    if (!validate()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSubmitResult({
-          success: true,
-          message: data.message || 'Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze.',
-          referenceId: data.referenceId,
-        });
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          service: defaultService || 'sonstiges',
-          message: '',
-          privacyAccepted: false,
-          honeypot: '',
-        });
-        setErrors({});
-      } else {
-        if (data.validationErrors) {
-          setErrors(data.validationErrors);
-        }
-        setSubmitResult({
-          success: false,
-          message: data.error || 'Beim Absenden ist ein Fehler aufgetreten. Bitte überprüfen Sie Ihre Eingaben.',
-        });
-      }
-    } catch (err) {
-      setSubmitResult({
-        success: false,
-        message: 'Der Server konnte vorübergehend nicht erreicht werden. Bitte rufen Sie uns direkt an oder versuchen Sie es gleich erneut.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    if (isSubmitting || state.succeeded || !validate()) return;
+    const submission = new FormData(e.currentTarget);
+    submission.set('name', formData.name.trim());
+    submission.set('email', formData.email.trim());
+    submission.set('message', formData.message.trim());
+    submission.set('service', SERVICES.find((service) => service.id === formData.service)?.shortTitle || 'Allgemeine Anfrage');
+    submission.set('privacyAccepted', 'Ja, Einwilligung zur Kontaktaufnahme erteilt');
+    submission.set('subject', `${BUSINESS_CONFIG.brandName} | Neue Projektanfrage von ${formData.name.trim().replace(/[\r\n]+/g, ' ')}`);
+    await submitToFormspree(submission);
   };
 
   return (
@@ -134,24 +93,21 @@ export function ContactForm({ defaultService }: ContactFormProps) {
             )}
             <div>
               <p className="font-semibold text-sm mb-1">{submitResult.message}</p>
-              {submitResult.referenceId && (
-                <p className="text-xs text-[#2f2e2e]/70">
-                  Referenznummer Ihrer Anfrage: <strong className="font-mono text-[#2f2e2e]">{submitResult.referenceId}</strong>
-                </p>
-              )}
+
             </div>
           </div>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      <form onSubmit={handleSubmit} noValidate className="space-y-6" hidden={state.succeeded}>
+        <ValidationError errors={state.errors} className="text-sm text-red-600" />
         {/* Spam Honeypot - Hidden from humans */}
         <div className="hidden" aria-hidden="true">
           <label htmlFor="website-field">Bitte dieses Feld leer lassen</label>
           <input
             id="website-field"
             type="text"
-            name="honeypot"
+            name="_gotcha"
             value={formData.honeypot}
             onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
             tabIndex={-1}
@@ -182,6 +138,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
               placeholder="z. B. Dr. Thomas Becker"
             />
             {errors.name && <p className="mt-1.5 text-xs text-red-600 font-medium">{errors.name}</p>}
+            <ValidationError prefix="Name" field="name" errors={state.errors} className="mt-1.5 text-xs text-red-600 font-medium" />
           </div>
 
           <div>
@@ -205,6 +162,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
               placeholder="beispiel@domain.de"
             />
             {errors.email && <p className="mt-1.5 text-xs text-red-600 font-medium">{errors.email}</p>}
+            <ValidationError prefix="E-Mail" field="email" errors={state.errors} className="mt-1.5 text-xs text-red-600 font-medium" />
           </div>
         </div>
 
@@ -229,6 +187,7 @@ export function ContactForm({ defaultService }: ContactFormProps) {
             placeholder="Wie können wir Ihnen helfen?"
           ></textarea>
           {errors.message && <p className="mt-1.5 text-xs text-red-600 font-medium">{errors.message}</p>}
+            <ValidationError prefix="Nachricht" field="message" errors={state.errors} className="mt-1.5 text-xs text-red-600 font-medium" />
         </div>
 
         {/* Privacy Checkbox */}
