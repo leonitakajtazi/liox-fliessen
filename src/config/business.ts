@@ -33,7 +33,7 @@ export const BUSINESS_CONFIG: BusinessConfig = {
   businessHours: 'Mo – Fr: 07:30 – 17:30 Uhr · Sa nach Vereinbarung',
   taxIdPlaceholder: '[UMSATZSTEUER-ID GEMÄSS § 27A UStG]',
   registerNumberPlaceholder: '[HANDELSREGISTER / HANDWERKSKAMMER EINTRAGUNG]',
-  responsiblePerson: '[INHABER / GESCHÄFTSFÜHRER]',
+  responsiblePerson: 'Erduan Osman',
 };
 
 export interface ServiceItem {
