@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv} from 'vite';
 import fs from 'node:fs';
-import { robots, sitemap, siteOrigin } from './seo.ts';
+import { robots, sitemap, siteOrigin, seoPaths, pageHtml } from './seo.ts';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig(({ mode }) => {
@@ -15,6 +15,12 @@ export default defineConfig(({ mode }) => {
         return html.replaceAll('__SITE_ORIGIN__', origin);
       },
       closeBundle() {
+        const html = fs.readFileSync('dist/index.html', 'utf8');
+        for (const route of seoPaths) {
+          const directory = path.join('dist', route.slice(1));
+          fs.mkdirSync(directory, { recursive: true });
+          fs.writeFileSync(path.join(directory, 'index.html'), pageHtml(html, route, origin));
+        }
         fs.writeFileSync('dist/robots.txt', robots(origin));
         fs.writeFileSync('dist/sitemap.xml', sitemap(origin));
       },

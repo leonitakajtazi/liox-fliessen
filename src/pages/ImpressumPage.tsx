@@ -40,7 +40,7 @@ export function ImpressumPage() {
             <h2 className="text-lg font-semibold text-[#2f2e2e] mb-2">Kontakt</h2>
             <p>Telefon: <a href="tel:+4915228908333" className={linkClassName}>+49 152 28908333</a></p>
             <p>E-Mail: <a href="mailto:info@liox-fliesen.de" className={linkClassName}>info@liox-fliesen.de</a></p>
-            <p>Webseite: <a href="https://www.liox-fliesen.de" className={linkClassName}>https://www.liox-fliesen.de</a></p>
+            <p>Webseite: <a href="https://liox-fliesen.de" className={linkClassName}>https://liox-fliesen.de</a></p>
           </section>
 
           <section className="space-y-4">

@@ -29,7 +29,7 @@ export const BUSINESS_CONFIG: BusinessConfig = {
   phoneRaw: '+4915228908333',
   email: 'info@liox-fliesen.de',
   address: 'Kurfürstenstraße 34, 55232 Alzey',
-  domain: typeof window !== 'undefined' ? new URL(import.meta.env.VITE_SITE_URL || window.location.origin).host : '',
+  domain: 'liox-fliesen.de',
   businessHours: 'Mo – Fr: 07:30 – 17:30 Uhr · Sa nach Vereinbarung',
   taxIdPlaceholder: '[UMSATZSTEUER-ID GEMÄSS § 27A UStG]',
   registerNumberPlaceholder: '[HANDELSREGISTER / HANDWERKSKAMMER EINTRAGUNG]',

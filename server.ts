@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { robots, sitemap, siteOrigin } from './seo.ts';
+import { robots, sitemap, siteOrigin, seoPaths, pageHtml } from './seo.ts';
 import express, { Request, Response } from 'express';
 import compression from 'compression';
 import path from 'path';
@@ -61,12 +61,12 @@ function isRateLimited(ip: string): boolean {
 // Robots.txt Handler
 // ----------------------------------------------------
 app.get('/robots.txt', (req: Request, res: Response) => {
-  const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
+  const origin = siteOrigin(process.env.VITE_SITE_URL);
   res.type('text/plain').send(robots(origin));
 });
 
 app.get('/sitemap.xml', (req: Request, res: Response) => {
-  const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
+  const origin = siteOrigin(process.env.VITE_SITE_URL);
   res.type('application/xml').send(sitemap(origin));
 });
 
@@ -187,6 +187,7 @@ async function startServer() {
     const distPath = path.resolve(__dirname, 'dist');
     app.use(express.static(distPath, {
       index: false,
+      redirect: false,
       setHeaders(res, filePath) {
         if (filePath.includes(`${path.sep}assets${path.sep}`)) {
           res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
@@ -194,12 +195,14 @@ async function startServer() {
       },
     }));
     app.get('*', (req: Request, res: Response) => {
-      const indexPath = path.join(distPath, 'index.html');
+      const route = req.path.length > 1 ? req.path.replace(/\/$/, '') : '/';
+      const knownRoute = seoPaths.includes(route);
+      const indexPath = knownRoute ? path.join(distPath, route.slice(1), 'index.html') : path.join(distPath, 'index.html');
       if (fs.existsSync(indexPath)) {
         const origin = siteOrigin(process.env.VITE_SITE_URL || req.protocol + '://' + req.get('host'));
         const html = fs.readFileSync(indexPath, 'utf8')
           .replaceAll('content="/images/logo-meisterbetrieb.png"', `content="${origin}/images/logo-meisterbetrieb.png"`);
-        res.type('html').send(html);
+        res.status(knownRoute ? 200 : 404).type('html').send(knownRoute ? html : pageHtml(html, route));
       } else {
         res.status(404).send('Not found');
       }
